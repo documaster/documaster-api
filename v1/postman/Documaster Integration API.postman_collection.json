@@ -1,0 +1,2405 @@
+{
+	"info": {
+		"_postman_id": "8751ab68-ebeb-4e1f-8d7c-4c6f4bd80ba3",
+		"name": "Documaster Integration API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"item": [
+				{
+					"name": "Get All Classifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification?pageSize=50&flags=includeTotal",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "50"
+								},
+								{
+									"key": "flags",
+									"value": "includeTotal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/tag",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sections",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section?pageSize=1&flags=includeTotal&expand=entries",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "flags",
+									"value": "includeTotal"
+								},
+								{
+									"key": "expand",
+									"value": "entries"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Entries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry?expand=tags,documents,externalIds&attributes=title,tags.title&pageSize=1&page=1&flags=includeTotal",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "tags,documents,externalIds"
+								},
+								{
+									"key": "attributes",
+									"value": "title,tags.title"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "flags",
+									"value": "includeTotal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Document Versions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All External IDs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Parties",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/party",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"party"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get By ID",
+			"item": [
+				{
+					"name": "Get Classification By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification/99666b6d-43d8-4716-b741-cd1bf64b7ae8?expand=tags&flags=includeTotal",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification",
+								"99666b6d-43d8-4716-b741-cd1bf64b7ae8"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "tags"
+								},
+								{
+									"key": "flags",
+									"value": "includeTotal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/tag/b8949015-86fa-49d6-a957-35e049d8aa1c",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"b8949015-86fa-49d6-a957-35e049d8aa1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Entry By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/c788a3ff-8683-49e6-9857-5786e8fc2dd0",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"c788a3ff-8683-49e6-9857-5786e8fc2dd0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document Version By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version/594dc870-3de1-45f2-a826-592949b8cbc4",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version",
+								"594dc870-3de1-45f2-a826-592949b8cbc4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Party By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/party/b8949015-86fa-49d6-a957-35e049d8aa1c",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"party",
+								"b8949015-86fa-49d6-a957-35e049d8aa1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get External ID By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id/e20481e2-65f7-4c3d-8ac3-69bc4949907c",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id",
+								"e20481e2-65f7-4c3d-8ac3-69bc4949907c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Section By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section/8961b525-48b9-4e9a-924b-16b1acae6d2f?expand=classifications,entries",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section",
+								"8961b525-48b9-4e9a-924b-16b1acae6d2f"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "classifications,entries"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Related",
+			"item": [
+				{
+					"name": "Tag: Get Classification",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/tag/47255840-5f04-4ea5-9449-aa1d79910201/classification?expand=tags&attributes=id,tags.id&pageSize=1",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"47255840-5f04-4ea5-9449-aa1d79910201",
+								"classification"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "tags"
+								},
+								{
+									"key": "attributes",
+									"value": "id,tags.id"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Classification: Get Tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification/7ce0a078-1364-42c1-b1f9-bae19e507da5/tags?page=1&pageSize=1&expand=classification&flags=includeTotal&attributes=title,classification.title",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification",
+								"7ce0a078-1364-42c1-b1f9-bae19e507da5",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "expand",
+									"value": "classification"
+								},
+								{
+									"key": "flags",
+									"value": "includeTotal"
+								},
+								{
+									"key": "attributes",
+									"value": "title,classification.title"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Classification: Get Sections",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification/69641e15-fdf4-4116-ae39-57d4555a0f1d/sections",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification",
+								"69641e15-fdf4-4116-ae39-57d4555a0f1d",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Section: Get Classifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section/8961b525-48b9-4e9a-924b-16b1acae6d2f/classifications?flags=includeTotal&expand=tags",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section",
+								"8961b525-48b9-4e9a-924b-16b1acae6d2f",
+								"classifications"
+							],
+							"query": [
+								{
+									"key": "flags",
+									"value": "includeTotal"
+								},
+								{
+									"key": "expand",
+									"value": "tags"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Section: Get Entries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section/8961b525-48b9-4e9a-924b-16b1acae6d2f/entries",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section",
+								"8961b525-48b9-4e9a-924b-16b1acae6d2f",
+								"entries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entry: Get Section",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8/section",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8",
+								"section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entry: Get Documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8/documents?expand=externalIds,documentVersions,documentVersions.externalIds,entry,entry.parties&attributes=externalIds.externalId",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8",
+								"documents"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "externalIds,documentVersions,documentVersions.externalIds,entry,entry.parties"
+								},
+								{
+									"key": "attributes",
+									"value": "externalIds.externalId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entry: Get Parties",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8/parties",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8",
+								"parties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entry: Get External Ids",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8/external-ids",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8",
+								"external-ids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Entry: Get Tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8/tags",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document: Get Entry",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/c788a3ff-8683-49e6-9857-5786e8fc2dd0/entry",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"c788a3ff-8683-49e6-9857-5786e8fc2dd0",
+								"entry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document: Get External IDs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/c788a3ff-8683-49e6-9857-5786e8fc2dd0/external-ids",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"c788a3ff-8683-49e6-9857-5786e8fc2dd0",
+								"external-ids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document: Get Document Versions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/c788a3ff-8683-49e6-9857-5786e8fc2dd0/document-versions",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"c788a3ff-8683-49e6-9857-5786e8fc2dd0",
+								"document-versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Party: Get Entry",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/party/79f91380-fd3b-4cf8-8957-0908433d132e/entry",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"party",
+								"79f91380-fd3b-4cf8-8957-0908433d132e",
+								"entry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document Version: Get Document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version/594dc870-3de1-45f2-a826-592949b8cbc4/document",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version",
+								"594dc870-3de1-45f2-a826-592949b8cbc4",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document Version: Get External IDs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version/594dc870-3de1-45f2-a826-592949b8cbc4/external-ids",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version",
+								"594dc870-3de1-45f2-a826-592949b8cbc4",
+								"external-ids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "External ID: Get Entry",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id/e20481e2-65f7-4c3d-8ac3-69bc4949907c/entry",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id",
+								"e20481e2-65f7-4c3d-8ac3-69bc4949907c",
+								"entry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "External ID: Get Document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id/69641e15-fdf4-4116-ae39-57d4555a0f1d/document",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id",
+								"69641e15-fdf4-4116-ae39-57d4555a0f1d",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "External ID: Get Document Version",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id/69641e15-fdf4-4116-ae39-57d4555a0f1d/document-version",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id",
+								"69641e15-fdf4-4116-ae39-57d4555a0f1d",
+								"document-version"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Create",
+			"item": [
+				{
+					"name": "Create Classification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"title\": \"classification with seciton with seciton and tags\",\r\n        \"description\": \"classification with section and tags\",\r\n        \"sections\": [{\"id\": \"9845e8dd-4d47-4d19-9356-596ee55cb1d4\"}],\r\n        \"tags\": [\r\n            {\r\n                \"title\": \"tag 1\",\r\n                \"description\": \"tag 1\"\r\n            },\r\n            {\r\n                \"title\": \"tag 2\",\r\n                \"description\": \"tag 2\"\r\n            }\r\n        ]\r\n    },\r\n    \"flags\": [\"includeTotal\"],\r\n    \"attributes\": [\r\n        \"tags.title\",\r\n        \"title\", \"createdDate\", \"tags.createdDate\"\r\n    ],\r\n    \"expand\": [\r\n        \"tags\",\r\n        \"sections\"\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"tag title\",\n        \"description\": \"tag description\",\n        \"classification\": [\n            {\n                \"id\": \"69641e15-fdf4-4116-ae39-57d4555a0f1d\"\n            }\n        ]\n    },\n    \"attributes\": [\n        \"classification.title\"\n    ],\n    \"expand\": [\n        \"classification\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/tag",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Section",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"section with classifications 2\",\n        \"description\": \"section description\",\n        \"classifications\": [\n            {\n                \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n            },\n            {\n                \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n            }\n        ]\n    },\n\t\"expand\": \"classifications\"\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"entry title\",\n        \"description\": \"entry description\",\n        \"section\": {\n            \"id\": \"4294dc41-ab7d-4e66-86ae-f9d02bd995e9\"\n        },\n        \"tags\": [\n            {\n                \"id\": \"a5ec8c9c-501a-406c-823c-6f128d7ed3ab\"\n            },\n            {\n                \"id\": \"b7247db9-db22-489e-8bfd-848a0093429e\"\n            }\n        ],\n        \"externalIds\": [\n            {\n                \"externalId\": \"entry external id\"\n            }\n        ],\n        \"documents\": [\n            {\n                \"title\": \"document with versions\",\n                \"externalIds\": {\n                    \"externalId\": \"document external id\"\n                },\n                \"documentVersions\": {\n                \t\"versionNumber\": 3,\n                    \"electronicDocument\": {\n                        \"id\": \"35e19595-7bfa-4c98-a5a8-dbe47bdf0077\"\n                    },\n                    \"externalIds\": [\n                        {\n                            \"externalId\": \"version external id\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"title\": \"document without versions\"\n            }\n        ],\n        \"parties\": [\n            {\n                \"name\": \"John Doe\",\n                \"city\": \"Oslo\",\n                \"country\": \"Norway\"\n            },\n            { \n                \"name\": \"Jane Doe\",\n                \"city\": \"Oslo\",\n                \"country\": \"Norway\"\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Party",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"name\": \"John Doe\",\n        \"city\": \"Oslo\",\n        \"country\": \"Norway\",\n        \"entry\": {\n            \"id\": \"2c0d3f8a-3575-45b8-b372-daa362c54e1a\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/party",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"party"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"document title\",\n        \"entry\": {\n            \"id\": \"1b99b314-c125-4c01-a868-e73ef612b87e\"\n        },\n        \"externalIds\": [\n            {\n                \"externalId\": \"f8ef8d70-86f0-4c05-8131-e4ff42f6edf4\"\n            }\n        ],\n        \"documentVersions\": [\n            {\n                \"electronicDocument\": {\n                    \"id\": \"f76ee87a-6aab-4316-87c1-ed2853158e47\"\n                }\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Document Version",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"electronicDocument\": {\n            \"id\": \"cefbbf21-7cfb-47cf-8cfd-82e71c4b213a\"\n        },\n        \"document\": {\n            \"id\": \"946f0af6-14ad-4899-8136-745a370a4cc5\"\n        },\n        \"externalIds\": [\n            {\n                \"externalId\": \"8043277b-59cf-448a-ad1c-1698e26e8da4\"\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create External ID for Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"931d2c57-ed01-40bb-8cb8-62cc3445ac08\",\n        \"entry\": {\n            \"id\": \"1b99b314-c125-4c01-a868-e73ef612b87e\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create External ID for Document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"931d2c57-ed01-40bb-8cb8-62cc3445ac08\",\n        \"document\": {\n            \"id\": \"51ca5584-b42e-4f36-b1e7-decf8d5e10d1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create External ID for Document Version",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"931d2c57-ed01-40bb-8cb8-62cc3445ac08\",\n        \"documentVersion\": {\n            \"id\": \"51ca5584-b42e-4f36-b1e7-decf8d5e10d1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Update",
+			"item": [
+				{
+					"name": "Update Classification",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"as123d\",\n        \"description\": \"classification description\",\n        \"revision\": 3\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": {\n                    \"id\": \"2320f05d-b4b9-404d-b783-5f2101cf8bee\"\n                }\n            }\n        ]\n    },\n    \"attributes\": [],\n    \"expand\": [\n        \"sections\",\n        \"tags\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification/aefd28fb-7ccd-4d93-bb75-5b2683b07cd9",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification",
+								"aefd28fb-7ccd-4d93-bb75-5b2683b07cd9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"title\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/tag/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"99666b6d-43d8-4716-b741-cd1bf64b7ae8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Section",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"updated section title\"\n    },\n    \"update\": {\n        \"classifications\": [\n            {\n                \"add\": [\n                    {\n                        \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n                    },\n                    {\n                        \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n                    }\n                ],\n                \"remove\": []\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section/9845e8dd-4d47-4d19-9356-596ee55cb1d4",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section",
+								"9845e8dd-4d47-4d19-9356-596ee55cb1d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Entry",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"updated entry title\",\n        \"description\": \"entry description\",\n        \"documents\": []\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"a5ec8c9c-501a-406c-823c-6f128d7ed3ab\"\n                    }\n                ]\n            }\n        ],\n        \"externalIds\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"c1f4d031-cc0d-47f4-9a61-6d2c42cffbf9\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"expand\": [\n        \"externalIds\",\n        \"documents\",\n        \"parties\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/1b99b314-c125-4c01-a868-e73ef612b87e",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"1b99b314-c125-4c01-a868-e73ef612b87e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Party",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"name\": \"name\"\n    },\n    \"attributes\": [\n        \"name\"\n    ],\n    \"expand\": [\n        \"entry\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/party/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"party",
+								"99666b6d-43d8-4716-b741-cd1bf64b7ae8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update External ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"dlqwnfdgqpsndgyumdmndsmeuybgfgds\"\n    },\n    \"expand\": [\n        \"entry\",\n        \"document\",\n        \"documentVersions\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id",
+								"99666b6d-43d8-4716-b741-cd1bf64b7ae8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"title\": \"title\",\n        \"externalIds\": [],\n        \"entry\": null\n    },\n    \"update\": {},\n    \"attributes\": [\n        \"title\"\n    ],\n    \"expand\": [\n        \"externalIds\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/0ce77f4a-2f13-4d0e-8c15-e4ec3997a9b9",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"0ce77f4a-2f13-4d0e-8c15-e4ec3997a9b9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document Version",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"fileName\": \"file name\"\n    },\n    \"update\": {\n        \"externalIds\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"b7e12eb6-fff5-440e-a9b9-3970b7a5445b\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"attributes\": [\n        \"fileName\"\n    ],\n    \"expand\": [\n        \"externalIds\",\"document\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version/431ed208-9042-4142-a971-5d6eff80f386",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version",
+								"431ed208-9042-4142-a971-5d6eff80f386"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete",
+			"item": [
+				{
+					"name": "Delete Classification",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/classification/aefd28fb-7ccd-4d93-bb75-5b2683b07cd9",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"classification",
+								"aefd28fb-7ccd-4d93-bb75-5b2683b07cd9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tag",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/tag/bec8f984-2ccf-4025-8dff-35c740e83147",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"bec8f984-2ccf-4025-8dff-35c740e83147"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Section",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/section/9845e8dd-4d47-4d19-9356-596ee55cb1d4",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"section",
+								"9845e8dd-4d47-4d19-9356-596ee55cb1d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Entry",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"2c22798d-d907-4260-8352-4e86e5717bb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Document",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/c788a3ff-8683-49e6-9857-5786e8fc2dd0",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"c788a3ff-8683-49e6-9857-5786e8fc2dd0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Document Version",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document-version/594dc870-3de1-45f2-a826-592949b8cbc4",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document-version",
+								"594dc870-3de1-45f2-a826-592949b8cbc4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete External ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id/4970a8e3-908e-40c0-8b2e-09870e129de4",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id",
+								"4970a8e3-908e-40c0-8b2e-09870e129de4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Party",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/party/69641e15-fdf4-4116-ae39-57d4555a0f1d",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"party",
+								"69641e15-fdf4-4116-ae39-57d4555a0f1d"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Download",
+			"item": [
+				{
+					"name": "Download",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/download/0d1fa813-8397-40b4-a151-fed6abca1292",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"download",
+								"0d1fa813-8397-40b4-a151-fed6abca1292"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Disposition",
+								"type": "text",
+								"value": "attachment; filename*=utf-8''asd"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/J:/DEV/Samples/Documents/1500mb.pdf"
+							}
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/upload-temp",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"upload-temp"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Lookup",
+			"item": [
+				{
+					"name": "Lookup Entry by ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"revision=@revision && id=@id\",\n    \"parameters\": {\n        \"@id\": \"1b99b314-c125-4c01-a868-e73ef612b87e\",\n        \"@revision\": 6\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/lookup",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"lookup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup Documents in Section",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"entry.section.title=@section\",\n    \"parameters\": {\n        \"@section\": \"section with classifications 2\"\n    },\n    \"flags\": [\"includeTotal\"],\n    \"attributes\": [\"title\", \"entry.title\", \"entry.section.title\"],\n    \"expand\": [\"entry\", \"entry.section\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/document/lookup",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document",
+								"lookup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup Entries without External IDs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"externalIds=@null\",\n    \"parameters\": {\n        \"@null\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/lookup",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"lookup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup Entry with External ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"externalIds.externalId=@externalId\",\n    \"parameters\": {\n        \"@externalId\": \"entry external id\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/lookup",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"lookup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup Entries with particular Tags that have External IDs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"(tags.title=@tag1 || tags.title=@tag2) && externalIds!=@null\",\n    \"parameters\": {\n        \"@tag1\": \"tag 1\",\n        \"@tag2\": \"asd\",\n        \"@null\": null\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/lookup",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"lookup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "165a0af9-a33b-4d1a-9b81-351450fb94eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "77b85883-c535-44fd-ad60-04990a270c7d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
