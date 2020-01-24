@@ -228,7 +228,7 @@ Content-type: application/json
 
 {
     "query": "title=@title1 || title=@title2",
-    "parameters": {"title1": "John Doe", "title2": "Jane Doe"},
+    "parameters": {"@title1": "John Doe", "@title2": "Jane Doe"},
     "page": 1,
     "pageSize": 3,
     "sort": {"title": "asc"}
@@ -602,7 +602,7 @@ Content-type: application/json
 
 {
     "query": "externalIds.externalId=@externalId",
-    "parameters": {"externalId": "CRM-system-862162"},
+    "parameters": {"@externalId": "CRM-system-862162"},
     "page": 1,
     "pageSize": 10,
     "sort": {"title": "asc"},

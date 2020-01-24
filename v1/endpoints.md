@@ -5,6 +5,7 @@ This document specifies information about the Documaster API endpoints:
 - [Endpoints](#endpoints)
   - [Fetch endpoint](#fetch-endpoint) - GET /{resource}
   - [Fetch by ID endpoint](#fetch-by-id-endpoint) - GET /{resource}/{id}
+  - [Fetch related endpoint](#fetch-related-endpoint) - GET /{resource}/{id}/{related-resource}
   - [Create endpoint](#create-endpoint) - POST /{resource}
   - [Update endpoint](#update-endpoint) - PUT /{resource}
   - [Delete endpoint](#delete-endpoint) - DELETE /{resource}
@@ -37,19 +38,19 @@ The web services require an access token (Bearer) to be specified in the HTTP he
 
 The following table lists the HTTP status codes used by the web services.
 
-| Status code                | Definition                                                                                               | Example                                                         |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
-| 200 OK                     | The request was successful.                                                                              | HTTP/1.1 200 OK                                                 |
-| 201 Created                | The request was fulfilled and resulted in a new resource being created.                                  | HTTP/1.1 201 Created                                            |
-| 204 No Content             | The request was successful, but there is no content to send in the response payload body.                | HTTP/1.1 204 No Content                                         |
-| 400 Bad Request            | The syntax of the request was invalid.                                                                   | HTTP/1.1 400 Bad Request                                        |
-| 415 Unsupported Media Type | The payload format requested by the client is not supported by the server.                               | HTTP/1.1 415 Unsupported Media Type                             |
-| 401 Unauthorized           | The request was denied due to an invalid or missing access token.                                        | <p>HTTP/1.1 401 Unauthorized</p><p>WWW-Authenticate: Bearer</p> |
-| 403 Forbidden              | The request was denied due to the access token having insufficient privileges.                           | HTTP/1.1 403 Forbidden                                          |
-| 404 Not Found              | The requested resource does not exist or is not accessible.                                              | HTTP/1.1 404 Not Found                                          |
-| 409 Conflict               | Data was updated by another client after the last read by this client. The client may retry the request. | HTTP/1.1 409 Conflict                                           |
-| 500 Internal Server Error  | An internal server error has occurred.                                                                   | HTTP/1.1 500 Internal Server Error                              |
-| 503 Service Unavailable    | The service is temporarily unavailable.                                                                  | HTTP/1.1 503 Service Unavailable                                |
+| Status code                | Definition                                                                                                                                         | Example                                                         |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| 200 OK                     | The request was successful.                                                                                                                        | HTTP/1.1 200 OK                                                 |
+| 201 Created                | The request was fulfilled and resulted in a new resource being created.                                                                            | HTTP/1.1 201 Created                                            |
+| 204 No Content             | The request was successful, but there is no content to send in the response payload body.                                                          | HTTP/1.1 204 No Content                                         |
+| 400 Bad Request            | The syntax of the request was invalid.                                                                                                             | HTTP/1.1 400 Bad Request                                        |
+| 401 Unauthorized           | The request was denied due to an invalid or missing access token.                                                                                  | <p>HTTP/1.1 401 Unauthorized</p><p>WWW-Authenticate: Bearer</p> |
+| 403 Forbidden              | The request was denied due to the access token having insufficient privileges to access the requested resource or perform the requested operation. | HTTP/1.1 403 Forbidden                                          |
+| 404 Not Found              | The requested resource does not exist or is not accessible.                                                                                        | HTTP/1.1 404 Not Found                                          |
+| 409 Conflict               | Data was updated by another client after the last read by this client. The client may retry the request.                                           | HTTP/1.1 409 Conflict                                           |
+| 415 Unsupported Media Type | The payload format requested by the client is not supported by the server.                                                                         | HTTP/1.1 415 Unsupported Media Type                             |
+| 500 Internal Server Error  | An internal server error has occurred.                                                                                                             | HTTP/1.1 500 Internal Server Error                              |
+| 503 Service Unavailable    | The service is temporarily unavailable.                                                                                                            | HTTP/1.1 503 Service Unavailable                                |
 ## Path
 
 All endpoints appear under the following base path:
@@ -83,6 +84,7 @@ Authorization: Bearer ACCESS_TOKEN
 - `pageSize` (optional)
   - specifies the page size
   - defaults to 10
+  - maximum allowed value is 1000
 - `flags` (optional)
   - specifies one or more flags requesting additional information
   - `includeTotal`
@@ -106,9 +108,9 @@ Content-type: application/json
             attribute: value,
             ...,
             "__resources": {
-                "self": "resource/id",
+                "self": "{resource}/{id}",
                 attribute: {
-                    "self": "resource/id/attribute"
+                    "self": "{resource}/{id}/{related-resource}"
                     "hasMore": boolean,
                     "page": integer,
                     "pageSize": integer
@@ -121,6 +123,7 @@ Content-type: application/json
     "hasMore": boolean,
     "page": integer,
     "pageSize": integer,
+    "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [string, ...],
 }
@@ -161,7 +164,7 @@ Content-type: application/json
 
 Response codes:
 - `200 OK`
-- `400 Bad request` 
+- `400 Bad request`
 
 ---
 
@@ -172,11 +175,17 @@ Retrieves the resources with the specified type and ID, if any.
 ### Request
 
 ```
-GET /{resource}/{id}?expand=resource1,resource2&attributes=field1,resource1.field1 HTTP/1.1
+GET /{resource}/{id}?expand=resource1,resource2&attributes=field1,resource1.field1?flags=includeTotal HTTP/1.1
 Accept: application/json
 Authorization: Bearer ACCESS_TOKEN
 ```
 
+- `flags` (optional)
+  - specifies one or more flags requesting additional information
+  - `includeTotal`
+    - retrieves the total amount of results
+    - incurs a performance cost on the Documaster instance
+    - defaults to false
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -196,9 +205,9 @@ Content-type: application/json
         attribute: value,
         ...,
         "__resources": {
-            "self": "resource/id",
+            "self": "{resource}/{id}",
             attribute: {
-                "self": "resource/id/attribute"
+                "self": "{resource}/{id}/{related-resource}"
                 "hasMore": boolean,
                 "page": integer,
                 "pageSize": integer
@@ -206,6 +215,7 @@ Content-type: application/json
             ...
         }
     },
+    "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [string, ...],
 }
@@ -231,6 +241,8 @@ Content-type: application/json
     - `pageSize` (optional)
       - the requested page size
       - only returned for related resources that represent a collection
+- `flags`
+  - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
 - `attributes` (optional)
@@ -239,6 +251,113 @@ Content-type: application/json
 Response codes:
 - `200 OK`
 - `400 Bad request`
+- `403 Unauthorized`
+
+---
+
+## Fetch Related endpoint
+
+Retrieves resources related to a resource with the specified type and ID, if any.
+
+### Request
+
+```
+GET /{resource}/{id}/{related-resource}?expand=resource1,resource2&attributes=field1,resource1.field1?flags=includeTotal&page=1&pageSize=10 HTTP/1.1
+Accept: application/json
+Authorization: Bearer ACCESS_TOKEN
+```
+
+- `page` (optional)
+  - specifies the page to fetch; 1-based
+  - defaults to 1
+- `pageSize` (optional)
+  - specifies the page size
+  - defaults to 10
+  - maximum allowed value is 1000
+- `flags` (optional)
+  - specifies one or more flags requesting additional information
+  - `includeTotal`
+    - retrieves the total amount of results
+    - incurs a performance cost on the Documaster instance
+    - defaults to false
+- `expand` (optional)
+  - specifies additional resources to be included in the response
+- `attributes` (optional)
+  - specifies the list of attributes to be returned for each resource in the response
+
+See the model specification for more information on the contents of 
+`expand` and `attributes`.
+
+### Response
+
+```
+200 OK
+Content-type: application/json
+
+{
+    "data": [
+        {
+            attribute: value,
+            ...,
+            "__resources": {
+                "self": "{resource}/{id}",
+                attribute: {
+                    "self": "{resource}/{id}/{related-resource}"
+                    "hasMore": boolean,
+                    "page": integer,
+                    "pageSize": integer
+                },
+                ...
+            }
+        },
+        ...,
+    ],
+    "hasMore": boolean,
+    "page": integer,
+    "pageSize": integer,
+    "flags": { "includeTotal": boolean }
+    "expand": [ string, ... ],
+    "attributes": [string, ...],
+}
+```
+
+- `data`
+  - contains a (potentially empty) list of the resources matching the specified lookup request
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
+- `__resources`
+  - lists additional information per returned resource
+  - `self`
+    - contains a link to fetch the current resource
+  - `attribute` (optional)
+    - denotes a collection of related entities by their attribute (tags, documents, etc.)
+    - `self`
+      - contains a link to fetch more of the related entities
+    - `hasMore` (optional)
+      - specifies whether more pages exist
+      - only returned for related resources that represent a collection
+    - `page` (optional)
+      - the requested page
+      - only appears for related resources that represent a collection
+    - `pageSize` (optional)
+      - the requested page size
+      - only returned for related resources that represent a collection
+- `hasMore`
+  - specifies whether more pages exist
+- `page`
+  - the requested page
+- `pageSize`
+  - the requested page size
+- `flags`
+  - the requested list of flags
+- `expand` (optional)
+  - the requested list of additional resources
+- `attributes` (optional)
+  - the requested list of attributes
+
+Response codes:
+- `200 OK`
+- `400 Bad request`
+- `403 Unauthorized`
 
 ---
 
@@ -256,6 +375,7 @@ Content-type: application/json
 
 {
     "data": { attribute: value, ... },
+    "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [ string, ... ]
 }
@@ -264,6 +384,12 @@ Content-type: application/json
 - `data`
   - contains the resource to be created
   - at most one thousand (1000) nested resources in total can be created as part of the same request
+- `flags` (optional)
+  - specifies one or more flags requesting additional information
+  - `includeTotal`
+    - retrieves the total amount of results
+    - incurs a performance cost on the Documaster instance
+    - defaults to false
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -280,9 +406,9 @@ Content-type: application/json
         attribute: value,
         ...,
         "__resources": {
-            "self": "resource/id",
+            "self": "{resource}/{id}",
             attribute: {
-                "self": "resource/id/attribute"
+                "self": "{resource}/{id}/{related-resource}"
                 "hasMore": boolean,
                 "page": integer,
                 "pageSize": integer
@@ -290,6 +416,7 @@ Content-type: application/json
             ...
         }
     },
+    "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [ string, ... ]
 }
@@ -315,6 +442,8 @@ Content-type: application/json
     - `pageSize` (optional)
       - the requested page size
       - only returned for related resources that represent a collection
+- `flags`
+  - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
 - `attributes` (optional)
@@ -322,7 +451,8 @@ Content-type: application/json
 
 Response codes:
 - `201 Created`
-- `400 Bad request` 
+- `400 Bad request`
+- `403 Unauthorized`
 
 ---
 
@@ -342,11 +472,11 @@ Content-type: application/json
     "data": { attribute: value, ... },
     "update": {
         attribute: [
-            { "add": { attribute: value } }, ...
-            { "remove": { attribute: value } }, ...
-            { "set": { attribute: value } }, ...
+            { "add": { "id": value } }, ...
+            { "remove": { "id": value } }, ...
         ]
     },
+    "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [ string, ... ]
 }
@@ -355,26 +485,35 @@ Content-type: application/json
 - `data` (optional)
   - contains the resource to be updated
   - specified attributes will **replace** the existing value
+  - setting collection-based attributes this way may be an expensive operation; consider using "add" under such circumstances
   - attributes that are not specified will not be modified
 - `update` (optional)
-  - contains a list of (multiple) `add`, `set`, or `remove` actions to be performed on the objects behind an attribute
+  - contains a list of (multiple) `add` and/or `remove` actions to be performed on the resources identified by the attribute
   - `add` (optional)
     - operates on collection-based attributes only
-    - adds the specified resource to the collection
+    - adds the resource with the specified ID to the collection
     - useful for linking Tags to Sections, for example
+    - cannot be used for children of the resource being updated
   - `remove` (optional)
     - operates on collection-based attributes only
-    - removed the specified resource from the collection
+    - removed the resource with the specified ID from the collection
     - useful for unlinking Tags fron Sections, for example
-  - `set` (optional)
-    - operates both on collection-based attributes and on single-value attributes
-    - replaces (sets) the attribute value with the specified one
+- `flags` (optional)
+  - specifies one or more flags requesting additional information
+  - `includeTotal`
+    - retrieves the total amount of results
+    - incurs a performance cost on the Documaster instance
+    - defaults to false
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
 At least one of `data` or `update` must be specified in an update request.
+
+The same attribute cannot be updated via both `data` and `update`.
+
+When both `data` and `update` have been specified, the attributes in the `data` element will be set first and the actions specified in `update` will be executed afterwards.
 
 ### Response
 
@@ -387,9 +526,9 @@ Content-type: application/json
         attribute: value,
         ...,
         "__resources": {
-            "self": "resource/id",
+            "self": "{resource}/{id}",
             attribute: {
-                "self": "resource/id/attribute"
+                "self": "{resource}/{id}/{related-resource}"
                 "hasMore": boolean,
                 "page": integer,
                 "pageSize": integer
@@ -397,6 +536,7 @@ Content-type: application/json
             ...
         }
     },
+    "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [ string, ... ],   
 }
@@ -422,6 +562,8 @@ Content-type: application/json
     - `pageSize` (optional)
       - the requested page size
       - only returned for related resources that represent a collection
+- `flags`
+  - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
 - `attributes` (optional)
@@ -429,8 +571,8 @@ Content-type: application/json
 
 Response codes:
 - `200 OK`
-- `400 Bad request` 
-- `404 Not found`
+- `400 Bad request`
+- `403 Unauthorized`
 
 ---
 
@@ -454,7 +596,7 @@ Authorization: Bearer ACCESS_TOKEN
 Response codes:
 - `204 No content`
 - `400 Bad request`
-- `404 Not found`
+- `403 Unauthorized`
 
 ---
 
@@ -475,7 +617,7 @@ Content-type: application/json
     "parameters": { string: string, ... },
     "page": number,
     "pageSize" number,
-    "sort": { string: asc|desc, ... },
+    "sort": [ { string: asc|desc} , ... ],
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [ string, ...]
@@ -494,6 +636,7 @@ Content-type: application/json
   - defaults to 10
 - `sort` (optional)
   - specifies sort order to be applied on one or more attributes
+  - an array of field : asc|desc objects
 - `flags` (optional)
   - specifies one or more flags requesting additional information
   - `includeTotal`
@@ -517,9 +660,9 @@ Content-type: application/json
             attribute: value,
             ...,
             "__resources": {
-                "self": "resource/id",
+                "self": "{resource}/{id}",
                 attribute: {
-                    "self": "resource/id/attribute"
+                    "self": "{resource}/{id}/{related-resource}"
                     "hasMore": boolean,
                     "page": integer,
                     "pageSize": integer
@@ -532,7 +675,7 @@ Content-type: application/json
     "hasMore": boolean,
     "page": integer,
     "pageSize": integer,
-    "sort": { string: asc|desc, ... },
+    "sort": [ { string: asc|desc } , ... ],
     "flags": { "includeTotal": boolean },
     "expand": [ string, ... ],
     "attributes": [string, ...]
@@ -567,6 +710,7 @@ Content-type: application/json
   - the requested page size
 - `sort` (optional)
   - the specified sort order
+  - an array of field : asc|desc objects
 - `flags`
   - the requested list of flags
 - `expand` (optional)
@@ -576,7 +720,8 @@ Content-type: application/json
 
 Response codes:
 - `200 OK`
-- `400 Bad request` 
+- `400 Bad request`
+- `403 Unauthorized`
 
 ---
 
@@ -607,7 +752,7 @@ The Content-Disposition header must specify at least one of the two parameters f
 ### Response
 
 ```
-200 OK
+201 Created
 Content-type: application/json
 
 {
@@ -616,6 +761,11 @@ Content-type: application/json
     }
 }
 ```
+
+Response codes:
+- `201 Created`
+- `400 Bad request`
+- `403 Unauthorized`
 
 ---
 
@@ -653,8 +803,11 @@ Format:
 {
     "errors": [
         {
+            "errorId": string,
             "status": integer,
-            "message": string
+            "message": string,
+            "path" string,
+            "timestamp": timestamp
         },
         ...
     ]
@@ -663,7 +816,14 @@ Format:
 
 - `errors`
   - contains a list of errors encountered by the server
+  - `errorId`
+    - A unique identifier of the error instance that could be reported to Documaster
   - `status`
     - the HTTP status code of the response
   - `message`
-    - an error message 
+    - a human-readable error message
+    - the message is not intended to be a unique identifier of the error that occurred
+  - `path`
+    - the resource path at which the error occurred
+  - `timestamp`
+    - the time at which the error occurred

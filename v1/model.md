@@ -58,9 +58,9 @@ The `attributes` field allows users to specify the exact attributes to be return
 
 `attributes` of both directly and indirectly related resources can be specified as long as they appear in the `expand` field.
 
-When `attributes` is not specified, responses will include:
-- all single-valued attributes of the requested resource
-- the ID attribute of all related many- or one-to-one references
+When `attributes` is not specified, responses will include all single-valued attributes of the requested resource.
+
+When `attributes` is specified, the `id` and `revision` attributes will always be returned for all requested resources regardless of the actual list of requested attributes.
 
 The model sections below list all supported `attributes` values for each resource.
 
@@ -99,16 +99,17 @@ The `expand` sections describe the supported values for the `expand` field in re
 
 A Classification is identified by the following attributes:
 
-| Attribute       | Response | Sort | Data type          | Comment                                                             |
-|-----------------|----------|------|--------------------|---------------------------------------------------------------------|
-| id              | X        | X    | string             | (Globally) Unique identifier of the resource                        |
-| revision        | X        | X    | integer            | Revision of the resource used for concurrent modification detection |
-| createdDate     | X        | X    | timestamp          | Timestamp at which the resource was created                         |
-| createdBy       | X        | X    | string             | User name of the user who created the resource                      |
-| createdByUserId | X        | X    | string             | User ID of the user who created the resource                        |
-| title           | X        | X    | string             | Title of the classification                                         |
-| description     | X        | X    | string             | Description of the Classification                                   |
-| tags            |          |      | array of resources | Related Tags                                                        |
+| Attribute       | Sort | Data type          | Comment                                                             |
+|-----------------|------|--------------------|---------------------------------------------------------------------|
+| id              | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy       | X    | string             | User name of the user who created the resource                      |
+| createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| title           | X    | string             | Title of the classification                                         |
+| description     | X    | string             | Description of the Classification                                   |
+| classification  |      | array of resources | Related Tags                                                        |
+| sections        |      | array of resources | Related Sections                                                    |
 
 ### Expand
 
@@ -121,21 +122,21 @@ A Classification accepts the following `expand` values:
 
 A Tag is identified by the following attributes:
 
-| Attribute       | Response | Sort | Data type | Comment                                                             |
-|-----------------|----------|------|-----------|---------------------------------------------------------------------|
-| id              | X        | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision        | X        | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate     | X        | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy       | X        | X    | string    | User name of the user who created the resource                      |
-| createdByUserId | X        | X    | string    | User ID of the user who created the resource                        |
-| title           | X        | X    | string    | Title of the classification                                         |
-| description     | X        | X    | string    | Description of the classification                                   |
-| classification  | X        |      | resource  | Parent Classification. By default, includes only the `id` attribute |
+| Attribute       | Sort | Data type | Comment                                                             |
+|-----------------|------|-----------|---------------------------------------------------------------------|
+| id              | X    | string    | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer   | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp | Timestamp at which the resource was created                         |
+| createdBy       | X    | string    | User name of the user who created the resource                      |
+| createdByUserId | X    | string    | User ID of the user who created the resource                        |
+| title           | X    | string    | Title of the Tag                                                    |
+| description     | X    | string    | Description of the Tag                                              |
+| classification  |      | resource  | Parent Classification                                               |
 
 ### Expand
 
 A Tag accepts the following `expand` values:
-- classification (in order to be able to request more fields than just the the parent Classification ID)
+- classification
 
 ## Section
 
@@ -143,21 +144,23 @@ A Tag accepts the following `expand` values:
 
 A Section is identified by the following attributes:
 
-| Attribute       | Response | Sort | Data type          | Comment                                                             |
-|-----------------|----------|------|--------------------|---------------------------------------------------------------------|
-| id              | X        | X    | string             | (Globally) Unique identifier of the resource                        |
-| revision        | X        | X    | integer            | Revision of the resource used for concurrent modification detection |
-| createdDate     | X        | X    | timestamp          | Timestamp at which the resource was created                         |
-| createdBy       | X        | X    | string             | User name of the user who created the resource                      |
-| createdByUserId | X        | X    | string             | User ID of the user who created the resource                        |
-| title           | X        | X    | string             | Title of the classification                                         |
-| description     | X        | X    | string             | Description of the Classification                                   |
-| classifications |          |      | array of resources | Related Classifications                                             |
+| Attribute       | Sort | Data type          | Comment                                                             |
+|-----------------|------|--------------------|---------------------------------------------------------------------|
+| id              | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy       | X    | string             | User name of the user who created the resource                      |
+| createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| title           | X    | string             | Title of the Tag                                                    |
+| description     | X    | string             | Description of the Section                                          |
+| classifications |      | array of resources | Related Classifications                                             |
+| entries         |      | array of resources | Related Entries                                                     |
 
 ### Expand
 
 A Section accepts the following `expand` values:
 - classifications
+- entries
 
 ## Entry
 
@@ -165,26 +168,25 @@ A Section accepts the following `expand` values:
 
 An Entry is identified by the following attributes:
 
-| Attribute       | Response | Sort | Data type          | Comment                                                             |
-|-----------------|----------|------|--------------------|---------------------------------------------------------------------|
-| id              | X        | X    | string             | (Globally) Unique identifier of the resource                        |
-| revision        | X        | X    | integer            | Revision of the resource used for concurrent modification detection |
-| createdDate     | X        | X    | timestamp          | Timestamp at which the resource was created                         |
-| createdBy       | X        | X    | string             | User name of the user who created the resource                      |
-| createdByUserId | X        | X    | string             | User ID of the user who created the resource                        |
-| title           | X        | X    | string             | Title of the classification                                         |
-| description     | X        | X    | string             | Description of the Classification                                   |
-| section         | X        |      | resource           | Parent Section. By default, includes only the `id` attribute        |
-| classifications |          |      | array of resources | Related Classifications                                             |
-| tags            |          |      | array of resources | Related Tags                                                        |
-| documents       |          |      | array of resources | Related Documents                                                   |
-| externalIds     |          |      | array of resources | Related ExternalIds                                                 |
-| parties         |          |      | array of resources | Related Parties                                                     |
+| Attribute       | Sort | Data type          | Comment                                                             |
+|-----------------|------|--------------------|---------------------------------------------------------------------|
+| id              | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy       | X    | string             | User name of the user who created the resource                      |
+| createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| title           | X    | string             | Title of the Entry                                                  |
+| description     | X    | string             | Description of the Entry                                            |
+| section         |      | resource           | Parent Section                                                      |
+| tags            |      | array of resources | Related Tags                                                        |
+| documents       |      | array of resources | Related Documents                                                   |
+| externalIds     |      | array of resources | Related ExternalIds                                                 |
+| parties         |      | array of resources | Related Parties                                                     |
 
 ### Expand
 
 An Entry accepts the following `expand` values:
-- section (in order to be able to request more fields than just the the parent Section ID)
+- section
 - classifications
 - tags
 - documents
@@ -197,29 +199,29 @@ An Entry accepts the following `expand` values:
 
 A Party is identified by the following attributes:
 
-| Attribute          | Response | Sort | Data type | Comment                                                             |
-|--------------------|----------|------|-----------|---------------------------------------------------------------------|
-| id                 | X        | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision           | X        | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate        | X        | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy          | X        | X    | string    | User name of the user who created the resource                      |
-| createdByUserId    | X        | X    | string    | User ID of the user who created the resource                        |
-| name               | X        | X    | string    | Name of the party                                                   |
-| personalNumber     | X        | X    | string    | Personal number of the party                                        |
-| organizationNumber | X        | X    | string    | Organization number of the party                                    |
-| tempPersonalNumber | X        | X    | string    | Temporary personal number of the party                              |
-| mailingAddress     | X        | X    | string    | Mailing address of the party                                        |
-| postalCode         | X        | X    | string    | Postal code of the party                                            |
-| city               | X        | X    | string    | City of the party                                                   |
-| country            | X        | X    | string    | Country of the party                                                |
-| emailAddress       | X        | X    | string    | E-mail address of the party                                         |
-| phoneNumber        | X        | X    | string    | Phone number of the party                                           |
-| entry              | X        |      | resource  | Parent Entry. By default, includes only the `id` attribute          |
+| Attribute          | Sort | Data type | Comment                                                             |
+|--------------------|------|-----------|---------------------------------------------------------------------|
+| id                 | X    | string    | (Globally) Unique identifier of the resource                        |
+| revision           | X    | integer   | Revision of the resource used for concurrent modification detection |
+| createdDate        | X    | timestamp | Timestamp at which the resource was created                         |
+| createdBy          | X    | string    | User name of the user who created the resource                      |
+| createdByUserId    | X    | string    | User ID of the user who created the resource                        |
+| name               | X    | string    | Name of the party                                                   |
+| personalNumber     | X    | string    | Personal number of the party                                        |
+| organizationNumber | X    | string    | Organization number of the party                                    |
+| tempPersonalNumber | X    | string    | Temporary personal number of the party                              |
+| mailingAddress     | X    | string    | Mailing address of the party                                        |
+| postalCode         | X    | string    | Postal code of the party                                            |
+| city               | X    | string    | City of the party                                                   |
+| country            | X    | string    | Country of the party                                                |
+| emailAddress       | X    | string    | E-mail address of the party                                         |
+| phoneNumber        | X    | string    | Phone number of the party                                           |
+| entry              |      | resource  | Parent Entry                                                        |
 
 ### Expand
 
 A Party accepts the following `expand` values:
-- entry (in order to be able to request more fields than just the the parent Entry ID)
+- entry
 
 ## Document
 
@@ -227,22 +229,22 @@ A Party accepts the following `expand` values:
 
 A Document is identified by the following attributes:
 
-| Attribute        | Response | Sort | Data type | Comment                                                             |
-|------------------|----------|------|-----------|---------------------------------------------------------------------|
-| id               | X        | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision         | X        | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate      | X        | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy        | X        | X    | string    | User name of the user who created the resource                      |
-| createdByUserId  | X        | X    | string    | User ID of the user who created the resource                        |
-| title            | X        | X    | string    | Title of the Document                                               |
-| entry            | X        |      | resource  | Parent Entry. By default, includes only the `id` attribute          |
-| externalIds      |          |      | resource  | Related ExternalIds                                                 |
-| documentVersions |          |      | resource  | Related Document Versions                                           |
+| Attribute        | Sort | Data type | Comment                                                             |
+|------------------|------|-----------|---------------------------------------------------------------------|
+| id               | X    | string    | (Globally) Unique identifier of the resource                        |
+| revision         | X    | integer   | Revision of the resource used for concurrent modification detection |
+| createdDate      | X    | timestamp | Timestamp at which the resource was created                         |
+| createdBy        | X    | string    | User name of the user who created the resource                      |
+| createdByUserId  | X    | string    | User ID of the user who created the resource                        |
+| title            | X    | string    | Title of the Document                                               |
+| entry            |      | resource  | Parent Entry                                                        |
+| externalIds      |      | resource  | Related ExternalIds                                                 |
+| documentVersions |      | resource  | Related Document Versions                                           |
 
 ### Expand
 
 A Document accepts the following `expand` values:
-- entry (in order to be able to request more fields than just the the parent Entry ID)
+- entry
 - externalIds
 - documentVersions
 
@@ -252,22 +254,22 @@ A Document accepts the following `expand` values:
 
 A DocumentVersion is identified by the following attributes:
 
-| Attribute          | Response | Sort | Data type | Comment                                                             |
-|--------------------|----------|------|-----------|---------------------------------------------------------------------|
-| id                 | X        | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision           | X        | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate        | X        | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy          | X        | X    | string    | User name of the user who created the resource                      |
-| createdByUserId    | X        | X    | string    | User ID of the user who created the resource                        |
-| fileName           | X        | X    | string    | File name of the document version                                   |
-| checksum           | X        | X    | string    | Checksum of the document version                                    |
-| checksumAlgorithm  | X        | X    | string    | Checksum algorithm of the document version                          |
-| fileSize           | X        | X    | integer   | File size of the document version                                   |
-| contentType        | X        | X    | string    | Content type of the document version                                |
-| versionNumber      | X        | X    | integer   | Version number of the document version                              |
-| document           | X        |      | resource  | Parent Document. By default, includes only the `id` attribute       |
-| electronicDocument | X        |      | resource  | Related ElectronicDocuemnt as uploaded by the upload endpoint       |
-| externalIds        |          |      | resource  | Related ExternalIds                                                 |
+| Attribute          | Sort | Data type | Comment                                                             |
+|--------------------|------|-----------|---------------------------------------------------------------------|
+| id                 | X    | string    | (Globally) Unique identifier of the resource                        |
+| revision           | X    | integer   | Revision of the resource used for concurrent modification detection |
+| createdDate        | X    | timestamp | Timestamp at which the resource was created                         |
+| createdBy          | X    | string    | User name of the user who created the resource                      |
+| createdByUserId    | X    | string    | User ID of the user who created the resource                        |
+| fileName           |      | string    | File name of the document version                                   |
+| checksum           |      | string    | Checksum of the document version                                    |
+| checksumAlgorithm  |      | string    | Checksum algorithm of the document version                          |
+| fileSize           |      | integer   | File size of the document version                                   |
+| contentType        |      | string    | Content type of the document version                                |
+| versionNumber      | X    | integer   | Version number of the document version                              |
+| document           |      | resource  | Parent Document                                                     |
+| electronicDocument |      | resource  | Related ElectronicDocuemnt as uploaded by the upload endpoint       |
+| externalIds        |      | resource  | Related ExternalIds                                                 |
 
 ### Expand
 
@@ -281,20 +283,22 @@ A DocumentVersion accepts the following `expand` values:
 
 An ExternalID is identified by the following attributes:
 
-| Attribute       | Response | Sort | Data type | Comment                                                                       |
-|-----------------|----------|------|-----------|-------------------------------------------------------------------------------|
-| id              | X        | X    | string    | (Globally) Unique identifier of the resource                                  |
-| revision        | X        | X    | integer   | Revision of the resource used for concurrent modification detection           |
-| createdDate     | X        | X    | timestamp | Timestamp at which the resource was created                                   |
-| createdBy       | X        | X    | string    | User name of the user who created the resource                                |
-| createdByUserId | X        | X    | string    | User ID of the user who created the resource                                  |
-| externalId      | X        | X    | string    | External ID                                                                   |
-| entry           |          |      | resource  | Parent Entry, if any. By default, includes only the `id` attribute            |
-| document        |          |      | resource  | Parent Document, if any. By default, includes only the `id` attribute         |
-| documentVersion |          |      | resource  | Parent Document Version, if any. By default, includes only the `id` attribute |
+| Attribute       | Sort | Data type | Comment                                                             |
+|-----------------|------|-----------|---------------------------------------------------------------------|
+| id              | X    | string    | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer   | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp | Timestamp at which the resource was created                         |
+| createdBy       | X    | string    | User name of the user who created the resource                      |
+| createdByUserId | X    | string    | User ID of the user who created the resource                        |
+| externalId      | X    | string    | External ID                                                         |
+| entry           |      | resource  | Parent Entry, if any                                                |
+| document        |      | resource  | Parent Document, if any                                             |
+| documentVersion |      | resource  | Parent Document Version, if any                                     |
 
 ### Expand
 
 A DocumentVersion accepts the following `expand` values:
-- document (in order to be able to request more fields than just the the parent Document ID)
+- entry
+- document
+- documentVersion
 - externalIds
