@@ -75,7 +75,7 @@ Retrieve the resources of the specified type, if any.
 ```
 GET /{resource}?page=1&pageSize=10&flags=includeTotal&expand=resource1,resource2&attributes=field1,resource1.field1 HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 ```
 
 - `page` (optional)
@@ -177,7 +177,7 @@ Retrieves the resources with the specified type and ID, if any.
 ```
 GET /{resource}/{id}?expand=resource1,resource2&attributes=field1,resource1.field1?flags=includeTotal HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 ```
 
 - `flags` (optional)
@@ -264,7 +264,7 @@ Retrieves resources related to a resource with the specified type and ID, if any
 ```
 GET /{resource}/{id}/{related-resource}?expand=resource1,resource2&attributes=field1,resource1.field1?flags=includeTotal&page=1&pageSize=10 HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 ```
 
 - `page` (optional)
@@ -370,7 +370,7 @@ Creates a new resource.
 ```
 POST /{resource} HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 Content-type: application/json
 
 {
@@ -465,7 +465,7 @@ Updates an existing resource.
 ```
 PUT /{resource}/{id} HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 Content-type: application/json
 
 {
@@ -584,7 +584,7 @@ Deletes the specified resource.
 
 ```
 DELETE {resource}/{id} HTTP/1.1
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 ```
 
 ### Response
@@ -609,7 +609,7 @@ Looks up the Archive based on user-defined criteria using a [query language](que
 ```
 POST /{resource}/lookup HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 Content-type: application/json
 
 {
@@ -734,7 +734,7 @@ Uploads a single temporary document to Documaster as a stream.
 ```
 POST /upload HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 Content-disposition: attachment; filename="ASCII_FILENAME"; filename*=utf-8''UTF8_FILENAME
 Content-type: application/octet-stream
 
