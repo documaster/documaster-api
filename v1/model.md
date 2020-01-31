@@ -86,7 +86,6 @@ The `data` sections describe the attributes that are:
 
 The table columns are as follows:
 - `Attribute` - the attribute name
-- `Response` - whether the attribute will be returned in the response by default. `X` means yes
 - `Sort` - whether the attribute can be sorted on. `X` means yes
 - `Data type` - the data type of the attribute
 - `Comment` - a description of the attribute together with any related information

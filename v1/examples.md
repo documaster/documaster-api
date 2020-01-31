@@ -22,9 +22,9 @@ Uploads a temporary document to Documaster.
 
 Request:
 ```
-POST /upload HTTP/1.1
+POST /upload-temp HTTP/1.1
 Accept: application/json
-Authorization: Bearer ACCESS_TOKEN
+Authorization: Bearer {token}
 Content-disposition: attachment; filename="filename.txt"; filename*=utf-8''filename.txt
 Content-type: application/octet-stream
 
@@ -167,7 +167,7 @@ Create a tag with title "John Doe" and link it to a Classification.
 
 Request:
 ```
-POST classification/{id}/tag HTTP/1.1
+POST tag/ HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 
@@ -206,7 +206,7 @@ Delete a tag.
 
 Request:
 ```
-DELETE /classification/{id}/tag/{id}
+DELETE tag/{id}
 Authorization: Bearer {token}
 Content-type: application/json
 ```
@@ -231,7 +231,7 @@ Content-type: application/json
     "parameters": {"@title1": "John Doe", "@title2": "Jane Doe"},
     "page": 1,
     "pageSize": 3,
-    "sort": {"title": "asc"}
+    "sort": {"field": "title", "order": "asc"}
 }
 ```
 
@@ -269,7 +269,7 @@ Response:
     "hasMore": false,
     "page": 1,
     "pageSize": 3,
-    "sort": {"title": "asc"}
+    "sort": {"field": "title", "order": "asc"},
 }
 ```
 
@@ -290,7 +290,7 @@ Content-type: application/json
 {
     "data": {
         "title": "HR",
-        "classification": [
+        "classifications": [
             {"id": "58dc1089-de65-4b98-a1f6-2f162c21dd05"},
             {"id": "1f858f70-aaee-49bb-a869-4716f91c41dc"}
         ]
@@ -605,7 +605,7 @@ Content-type: application/json
     "parameters": {"@externalId": "CRM-system-862162"},
     "page": 1,
     "pageSize": 10,
-    "sort": {"title": "asc"},
+    "sort": {"field": "title", "order": "asc"},
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
     "attributes: ["tags.title", "tags.classification.title"],
@@ -645,7 +645,7 @@ Response:
     "total": 1,
     "page": 1,
     "pageSize": 10,
-    "sort": {"title": "asc"},
+    "sort": {"field": "title", "order": "asc"},
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
     "attributes: ["tags.title", "tags.classification.title"],
