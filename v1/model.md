@@ -154,12 +154,14 @@ A Section is identified by the following attributes:
 | description     | X    | string             | Description of the Section                                          |
 | classifications |      | array of resources | Related Classifications                                             |
 | entries         |      | array of resources | Related Entries                                                     |
+| externalIds     |      | array of resources | Related ExternalIds                                                 |
 
 ### Expand
 
 A Section accepts the following `expand` values:
 - classifications
 - entries
+- externalIds
 
 ## Entry
 
