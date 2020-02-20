@@ -49,7 +49,7 @@ Downloads a document from Documaster.
 
 Request:
 ```
-GET download/db7c7593-32d3-4298-bbf7-681237bd58ef
+GET /download/db7c7593-32d3-4298-bbf7-681237bd58ef
 Authorization: Bearer {token}
 ```
 
@@ -70,7 +70,7 @@ Create a Classification with title "Employees".
 
 Request:
 ```
-POST classification/ HTTP/1.1
+POST /classification HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 
@@ -103,7 +103,7 @@ Create a Classification with title "Employees" and two Tags.
 
 Request:
 ```
-POST classification/ HTTP/1.1
+POST /classification HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 
@@ -167,7 +167,7 @@ Create a tag with title "John Doe" and link it to a Classification.
 
 Request:
 ```
-POST tag/ HTTP/1.1
+POST /tag HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 
@@ -206,7 +206,7 @@ Delete a tag.
 
 Request:
 ```
-DELETE tag/{id}
+DELETE /tag/{id}
 Authorization: Bearer {token}
 Content-type: application/json
 ```
@@ -222,7 +222,7 @@ Look up Tags with specific titles.
 
 Request:
 ```
-POST tag/lookup HTTP/1.1
+POST /tag/lookup HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 
@@ -283,7 +283,7 @@ Create a section and link it to two Classifications.
 
 Request:
 ```
-POST section/ HTTP/1.1
+POST /section HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 
@@ -596,7 +596,7 @@ Look up an Entry with a specific External ID.
 
 Request:
 ```
-POST entry/lookup HTTP/1.1
+POST /entry/lookup HTTP/1.1
 Authorization: Bearer {token}
 Content-type: application/json
 

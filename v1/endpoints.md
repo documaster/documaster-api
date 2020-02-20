@@ -583,7 +583,7 @@ Deletes the specified resource.
 ### Request
 
 ```
-DELETE {resource}/{id} HTTP/1.1
+DELETE /{resource}/{id} HTTP/1.1
 Authorization: Bearer {token}
 ```
 
@@ -776,7 +776,7 @@ Downloads a single document from Documaster as a stream.
 ### Request
 
 ```
-GET download/{id}
+GET /download/{id}
 Authorization: Bearer {token}
 ```
 
