@@ -1,9 +1,9 @@
-Query language
+Lookup Query language
 -------
 
 ## Overview
 
-The web services support a simple but powerful query language that allows one to query for resources of a particular type, specifying **criteria** on the **resource attributes** as well as **criteria on the attributes of linked resources**. Note that a *linked resource* may be linked directly or indirectly (via another resource).
+The web services support a simple but powerful lookup query language that allows one to query for resources of a particular type, specifying **criteria** on the **resource attributes** as well as **criteria on the attributes of linked resources**. Note that a *linked resource* may be linked directly or indirectly (via another resource).
 
 ## Attributes
 

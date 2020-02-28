@@ -11,6 +11,7 @@ You can jump right to the section you are interested in:
 - [Tag examples](#tag)
 - [Section examples](#section)
 - [Entry examples](#entry)
+- [Search examples](#search)
 
 ---
 
@@ -649,5 +650,75 @@ Response:
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
     "attributes: ["tags.title", "tags.classification.title"],
+}
+```
+
+---
+
+## Search
+
+### Free-text document search
+
+Search for documents that contain user-specified free text and sort them by relevance.
+
+The query is further narrowed down to documents annotated with specific Tags and belonging to a specific Section.
+
+Request:
+```
+POST /document/search HTTP/1.1
+Authorization: Bearer {token}
+Content-type: application/json
+
+{
+    "query": "Termination date",
+    "queryAttributes": ["documentVersions.text"],
+    "filterQuery": "entry.section.title=@sectionTitle && (entry.tags.title=@tagTitle1 || entry.tags.title=@tagTitle2)",
+    "parameters": {"@sectionTitle": "HR", "@tagTitle1": "Contracts", "@tagTitle2": "John Doe"},
+    "page": 1,
+    "pageSize": 10,
+    "expand": ["documentVersions", "entry"],
+    "attributes": ["title", "documentVersions.text", "entry.title"]
+}
+```
+
+Response:
+```
+200 OK
+
+{
+    "data": [
+        {
+            "id": "bfe49142-895e-4db9-9255-d83d615848a9",
+            "title": "John Doe Employment Contract",
+            "entry": {
+                "id": "0e06cfd4-722b-4c14-aab3-1753e5df5761",
+                "title": "John Doe Employment Contract"
+            },
+            "documentVersions": [
+                {
+                    "id": "ae07df14-731b-12ab-ca13-2c54e5df5762",
+                    "text": "[shortened for brevity] Date of termination: 14/02/2001 [shortened for brevity]"
+                }
+            ],
+            "__resources": {
+                "self": "document/bfe49142-895e-4db9-9255-d83d615848a9",
+                "entry": {
+                    "self": "entry/0e06cfd4-722b-4c14-aab3-1753e5df5761",
+                },
+                "documentVersions": {
+                    "self": "document/bfe49142-895e-4db9-9255-d83d615848a9/document-versions",
+                    "hasMore": false,
+                    "page": 1,
+                    "pageSize": 2
+                }
+            }
+        }
+    ],
+    "hasMore": false,
+    "total": 1,
+    "page": 1,
+    "pageSize": 10,
+    "expand": ["documentVersions", "entry"],
+    "attributes": ["title", "documentVersions.text", "entry.title"]
 }
 ```
