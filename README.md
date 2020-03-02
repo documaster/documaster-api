@@ -1,7 +1,7 @@
 # Introduction
 
-This repository documents all supported versions of the publicly-exposed Documaster Integration API.
+This repository documents all supported versions of the Documaster Integration API.
 
-The master branch contains documentation that has been peer-reviewed and released. Backwards-incompatible changes to the documentation merged in master is not expected unless the documentation itself is found to be incorrect.
+The **master** branch contains documentation of services that have been peer-reviewed and are available for use.
 
-The develop branch, on the other hand, contains documentation about services that have not yet been released and are subject to change.
+The **develop** branch contains documentation of services that have not yet been released and are subject to change.
