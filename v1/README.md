@@ -3,7 +3,8 @@
 - [Examples](examples.md)
 - [Data model](model.md)
 - [API endpoints](endpoints.md)
-- [Query language](query-language.md)
+- [Lookup query language](lookup-query-language.md)
+- [Free-text search query language](free-text-search-query-language.md)
 
 # Introduction
 

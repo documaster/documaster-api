@@ -10,6 +10,7 @@ This document specifies information about the Documaster API endpoints:
   - [Update endpoint](#update-endpoint) - PUT /{resource}
   - [Delete endpoint](#delete-endpoint) - DELETE /{resource}
   - [Lookup](#lookup-endpoint) - POST /{resource}/lookup
+  - [Search](#search-endpoint) - POST /{resource}/search
   - [Upload](#upload-endpoint) - POST upload-temp/
   - [Download](#download-endpoint) - GET download/{id}
 - [Error response format](#error-response-format)
@@ -602,7 +603,7 @@ Response codes:
 
 ## Lookup endpoint
 
-Looks up the Archive based on user-defined criteria using a [query language](query-language.md).
+Looks up the Archive based on user-defined criteria using a [lookup query language](lookup-query-language.md).
 
 ### Request
 
@@ -711,6 +712,138 @@ Content-type: application/json
 - `sort` (optional)
   - the specified sort order
   - an array of field : asc|desc objects
+- `flags`
+  - the requested list of flags
+- `expand` (optional)
+  - the requested list of additional resources
+- `attributes` (optional)
+  - the requested list of attributes
+
+Response codes:
+- `200 OK`
+- `400 Bad request`
+- `403 Unauthorized`
+
+---
+
+## Search endpoint
+
+Performs search queries in the Documaster index based on a user-defined free-text query. Additional criteria can be specified using a [free-text search query language](free-text-search-query-language.md) to narrow down the results.
+
+Note that the free-text search endpoints differs from the lookup endpoint in the following ways:
+
+1. While the lookup endpoint will always operates on the **latest state** of the resources, the free-text search might not immediately reflect changes performed via the create, update, or delete endpoints. Ask us for more information on the delays when using the free-text search endpoint.
+
+2. The free-text search endpoint allows you to perform non-exact search requests that will be sorted by relevance by default.
+
+3. The full-text search is *likely* to perform better for heavily-filtered query requests.
+
+4. The full-text search endpoint is supported only for the *document* and *entry* resources and document text queries are only supported for the *document* resource.
+
+### Request
+
+```
+POST /{resource}/search HTTP/1.1
+Accept: application/json
+Authorization: Bearer {token}
+Content-type: application/json
+{
+    "query": string,
+    "queryAttributes": [ string, ...],
+    "filterQuery": string,
+    "parameters": { string: string, ... },
+    "page": number,
+    "pageSize" number,
+    "flags": { "includeTotal": boolean }
+    "expand": [ string, ... ],
+    "attributes": [ string, ...]
+}
+```
+
+- `query` (optional)
+  - specifies a free-text query
+- `queryAttributes` (optional)
+  - specifies the attributes (own or related) on which to execute the free-text search query
+- `filterQuery` (optional)
+  - an additional (attribute-based) query to narrow down the results
+  - uses the [free-text search query language](free-text-search-query-language.md)
+- `parameters` (optional)
+  - specifies a list of parameters and their values used in `filterQuery`
+- `page` (optional)
+  - specifies the page to fetch; 1-based
+  - defaults to 1
+- `pageSize` (optional)
+  - specifies the page size
+  - defaults to 10
+- `flags` (optional)
+  - specifies one or more flags requesting additional information
+- `expand` (optional)
+  - specifies additional resources to be included in the response
+- `attributes` (optional)
+  - specifies the list of attributes to be returned for each resource in the response
+
+### Response
+
+```
+200 OK
+Content-type: application/json
+
+{
+    "data": [ 
+        {
+            attribute: value,
+            ...,
+            "__resources": {
+                "self": "{resource}/{id}",
+                attribute: {
+                    "self": "{resource}/{id}/{related-resource}"
+                    "hasMore": boolean,
+                    "page": integer,
+                    "pageSize": integer
+                },
+                ...
+            }
+        },
+        ...
+    ],
+    "hasMore": boolean,
+    "page": integer,
+    "pageSize": integer,
+    "total": integer,
+    "flags": { },
+    "expand": [ string, ... ],
+    "attributes": [string, ...]
+}
+```
+
+- `data`
+  - contains a (potentially empty) list of the resources matching the specified free-text search request
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
+- `__resources`
+  - lists additional information per returned resource
+  - `self`
+    - contains a link to fetch the current resource
+  - `attribute` (optional)
+    - denotes a collection of related entities by their attribute
+    - `self`
+      - contains a link to fetch more of the related entities
+    - `hasMore` (optional)
+      - specifies whether more pages exist
+      - only returned for related resources that represent a collection
+    - `page` (optional)
+      - the requested page
+      - only returned for related resources that represent a collection
+    - `pageSize` (optional)
+      - the requested page size
+      - only returned for related resources that represent a collection
+- `hasMore`
+  - specifies whether more pages exist
+- `page`
+  - the requested page
+- `pageSize`
+  - the requested page size
+- `total`
+  - the total number of hits
 - `flags`
   - the requested list of flags
 - `expand` (optional)
