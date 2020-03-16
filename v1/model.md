@@ -21,6 +21,7 @@ You can jump right to the section you are interested in:
   - [Document](#document)
   - [DocumentVersion](#document-version)
   - [ExternalId](#external-id)
+  - [Model Constraints](#model-constraints)
 
 (!) Note that any users of the Documaster API must disregard the presense of unknown attributes, (nested) resources, or parameters in any of the endpoints or resources to allow for backwards-compatible expansions of the API.
 
@@ -105,6 +106,9 @@ A Classification is identified by the following attributes:
 | createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
 | createdBy       | X    | string             | User name of the user who created the resource                      |
 | createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
 | title           | X    | string             | Title of the classification                                         |
 | description     | X    | string             | Description of the Classification                                   |
 | classification  |      | array of resources | Related Tags                                                        |
@@ -128,6 +132,9 @@ A Tag is identified by the following attributes:
 | createdDate     | X    | timestamp | Timestamp at which the resource was created                         |
 | createdBy       | X    | string    | User name of the user who created the resource                      |
 | createdByUserId | X    | string    | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string    | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string    | User ID of the user who updated the resource                        |
 | title           | X    | string    | Title of the Tag                                                    |
 | description     | X    | string    | Description of the Tag                                              |
 | classification  |      | resource  | Parent Classification                                               |
@@ -150,6 +157,9 @@ A Section is identified by the following attributes:
 | createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
 | createdBy       | X    | string             | User name of the user who created the resource                      |
 | createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
 | title           | X    | string             | Title of the Tag                                                    |
 | description     | X    | string             | Description of the Section                                          |
 | classifications |      | array of resources | Related Classifications                                             |
@@ -176,6 +186,9 @@ An Entry is identified by the following attributes:
 | createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
 | createdBy       | X    | string             | User name of the user who created the resource                      |
 | createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
 | title           | X    | string             | Title of the Entry                                                  |
 | description     | X    | string             | Description of the Entry                                            |
 | section         |      | resource           | Parent Section                                                      |
@@ -207,6 +220,9 @@ A Party is identified by the following attributes:
 | createdDate        | X    | timestamp | Timestamp at which the resource was created                         |
 | createdBy          | X    | string    | User name of the user who created the resource                      |
 | createdByUserId    | X    | string    | User ID of the user who created the resource                        |
+| updatedDate        | X    | timestamp | Timestamp at which the resource was updated                         |
+| updatedBy          | X    | string    | User name of the user who last updated the resource                 |
+| updatedByUserId    | X    | string    | User ID of the user who updated the resource                        |
 | name               | X    | string    | Name of the party                                                   |
 | personalNumber     | X    | string    | Personal number of the party                                        |
 | organizationNumber | X    | string    | Organization number of the party                                    |
@@ -237,6 +253,9 @@ A Document is identified by the following attributes:
 | createdDate      | X    | timestamp | Timestamp at which the resource was created                         |
 | createdBy        | X    | string    | User name of the user who created the resource                      |
 | createdByUserId  | X    | string    | User ID of the user who created the resource                        |
+| updatedDate      | X    | timestamp | Timestamp at which the resource was updated                         |
+| updatedBy        | X    | string    | User name of the user who last updated the resource                 |
+| updatedByUserId  | X    | string    | User ID of the user who updated the resource                        |
 | title            | X    | string    | Title of the Document                                               |
 | entry            |      | resource  | Parent Entry                                                        |
 | externalIds      |      | resource  | Related ExternalIds                                                 |
@@ -262,6 +281,9 @@ A DocumentVersion is identified by the following attributes:
 | createdDate        | X    | timestamp | Timestamp at which the resource was created                         |
 | createdBy          | X    | string    | User name of the user who created the resource                      |
 | createdByUserId    | X    | string    | User ID of the user who created the resource                        |
+| updatedDate        | X    | timestamp | Timestamp at which the resource was updated                         |
+| updatedBy          | X    | string    | User name of the user who last updated the resource                 |
+| updatedByUserId    | X    | string    | User ID of the user who updated the resource                        |
 | fileName           |      | string    | File name of the document version                                   |
 | checksum           |      | string    | Checksum of the document version                                    |
 | checksumAlgorithm  |      | string    | Checksum algorithm of the document version                          |
@@ -291,6 +313,9 @@ An ExternalID is identified by the following attributes:
 | createdDate     | X    | timestamp | Timestamp at which the resource was created                         |
 | createdBy       | X    | string    | User name of the user who created the resource                      |
 | createdByUserId | X    | string    | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string    | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string    | User ID of the user who updated the resource                        |
 | externalId      | X    | string    | External ID                                                         |
 | entry           |      | resource  | Parent Entry, if any                                                |
 | document        |      | resource  | Parent Document, if any                                             |
@@ -303,3 +328,23 @@ A DocumentVersion accepts the following `expand` values:
 - document
 - documentVersion
 - externalIds
+
+## Model constraints
+
+There are certain model constraints in play for created* and updated* fields.
+
+### Created fields
+
+The following constraints apply to the `created*` fields:
+* `createdBy` and `createdByUserId` must be specified together. Specifying only one of the two will result in a Bad request.
+* if `createdDate` is not specifed, Documaster will automatically fall back to the current date
+* if `createdBy` and `createdByUserId` are not specifed, Documaster will automatically fall back to the current user
+* all `created*` fields require special permssions to be set that are not usually granted to regular users. Ask us for more information.
+
+### Update fields
+
+The following constraints apply to the `updated*` fields:
+* `updatedBy` and `updatedByUserId` must be specified together. Specifying only one of the two will result in a Bad request.
+* if `updatedDate` is not specifed, Documaster will automatically fall back to the current date
+* if `updatedBy` and `updatedByUserId` are not specifed, Documaster will automatically fall back to the current user
+* all `updated*` fields require special permssions to be set that are not usually granted to regular users. Ask us for more information.
