@@ -740,6 +740,8 @@ Note that the free-text search endpoints differs from the lookup endpoint in the
 
 4. The full-text search endpoint is supported only for the *document* and *entry* resources and document text queries are only supported for the *document* resource.
 
+5. The internal index only contains information about the _last_ `document version` for every `document`. As a result, free-text searches can only be performed in the text of the latest document version, but not for earlier document versions.
+
 ### Request
 
 ```
@@ -762,8 +764,10 @@ Content-type: application/json
 
 - `query` (optional)
   - specifies a free-text query
+  - any special characters would usually be escaped in the free-text query with the exception of quotes (") which allow you to perform "phrase searches"
 - `queryAttributes` (optional)
   - specifies the attributes (own or related) on which to execute the free-text search query
+  - allowed query attributes are text-based ones such as `title`, `description`, `text`, `fileName`, etc. but not date or numeric attributes such as `createdDate` or `versionNumber`, for example
 - `filterQuery` (optional)
   - an additional (attribute-based) query to narrow down the results
   - uses the [free-text search query language](free-text-search-query-language.md)
@@ -855,6 +859,17 @@ Response codes:
 - `200 OK`
 - `400 Bad request`
 - `403 Unauthorized`
+
+### Free-text search tips and tricks
+
+We recommend taking the following precautions when performing free-text searches 
+
+* explicitly override the `documentVersions` `attribute`s to be returned in the response as the `text` attribute may unnecessarily increase the payload size significantly for documents that contain a lot of text
+* consider making use of text highlight snippets (`highlights` returned for each resource) instead of retrieving the unabbreviated text attribute (`text`) that may be significantly larger  
+  See the model specification for more details about `highlights`.
+* in order to receive any `highlights` for the attributes of a related resource, you must request that it is `expanded`. You would still get the primary results in the response even if you do not do this, but you will not receive the corresponding highlighted snippets.
+
+Note that the API will always return the latest document version in document searches if you `expanded` the response with `documentVersions` in order to satisfy the most common use case for the search service - free-text searches in the document text.
 
 ---
 

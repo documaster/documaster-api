@@ -697,7 +697,8 @@ Response:
             "documentVersions": [
                 {
                     "id": "ae07df14-731b-12ab-ca13-2c54e5df5762",
-                    "text": "[shortened for brevity] Date of termination: 14/02/2001 [shortened for brevity]"
+                    "text": "[shortened for brevity] Date of termination: 14/02/2001 [shortened for brevity]",
+                    "highlights": {"text": ["[shortened for brevity] ... |=hlstart=|Date|=hlstop=| of |=hlstart=|termination|=hlstop=| ... [shortened for brevity]"]}
                 }
             ],
             "__resources": {
