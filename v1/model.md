@@ -22,6 +22,7 @@ You can jump right to the section you are interested in:
   - [DocumentVersion](#document-version)
   - [ExternalId](#external-id)
   - [Model Constraints](#model-constraints)
+  - [Highlights](#highlights)
 
 (!) Note that any users of the Documaster API must disregard the presense of unknown attributes, (nested) resources, or parameters in any of the endpoints or resources to allow for backwards-compatible expansions of the API.
 
@@ -111,6 +112,7 @@ A Classification is identified by the following attributes:
 | updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
 | title           | X    | string             | Title of the classification                                         |
 | description     | X    | string             | Description of the Classification                                   |
+| highlights      |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
 | classification  |      | array of resources | Related Tags                                                        |
 | sections        |      | array of resources | Related Sections                                                    |
 
@@ -125,19 +127,20 @@ A Classification accepts the following `expand` values:
 
 A Tag is identified by the following attributes:
 
-| Attribute       | Sort | Data type | Comment                                                             |
-|-----------------|------|-----------|---------------------------------------------------------------------|
-| id              | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision        | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate     | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy       | X    | string    | User name of the user who created the resource                      |
-| createdByUserId | X    | string    | User ID of the user who created the resource                        |
-| updatedDate     | X    | timestamp | Timestamp at which the resource was updated                         |
-| updatedBy       | X    | string    | User name of the user who last updated the resource                 |
-| updatedByUserId | X    | string    | User ID of the user who updated the resource                        |
-| title           | X    | string    | Title of the Tag                                                    |
-| description     | X    | string    | Description of the Tag                                              |
-| classification  |      | resource  | Parent Classification                                               |
+| Attribute       | Sort | Data type          | Comment                                                             |
+|-----------------|------|--------------------|---------------------------------------------------------------------|
+| id              | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy       | X    | string             | User name of the user who created the resource                      |
+| createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
+| title           | X    | string             | Title of the Tag                                                    |
+| description     | X    | string             | Description of the Tag                                              |
+| highlights      |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
+| classification  |      | resource           | Parent Classification                                               |
 
 ### Expand
 
@@ -162,6 +165,7 @@ A Section is identified by the following attributes:
 | updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
 | title           | X    | string             | Title of the Tag                                                    |
 | description     | X    | string             | Description of the Section                                          |
+| highlights      |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
 | classifications |      | array of resources | Related Classifications                                             |
 | entries         |      | array of resources | Related Entries                                                     |
 | externalIds     |      | array of resources | Related ExternalIds                                                 |
@@ -191,6 +195,7 @@ An Entry is identified by the following attributes:
 | updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
 | title           | X    | string             | Title of the Entry                                                  |
 | description     | X    | string             | Description of the Entry                                            |
+| highlights      |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
 | section         |      | resource           | Parent Section                                                      |
 | tags            |      | array of resources | Related Tags                                                        |
 | documents       |      | array of resources | Related Documents                                                   |
@@ -213,27 +218,28 @@ An Entry accepts the following `expand` values:
 
 A Party is identified by the following attributes:
 
-| Attribute          | Sort | Data type | Comment                                                             |
-|--------------------|------|-----------|---------------------------------------------------------------------|
-| id                 | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision           | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate        | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy          | X    | string    | User name of the user who created the resource                      |
-| createdByUserId    | X    | string    | User ID of the user who created the resource                        |
-| updatedDate        | X    | timestamp | Timestamp at which the resource was updated                         |
-| updatedBy          | X    | string    | User name of the user who last updated the resource                 |
-| updatedByUserId    | X    | string    | User ID of the user who updated the resource                        |
-| name               | X    | string    | Name of the party                                                   |
-| personalNumber     | X    | string    | Personal number of the party                                        |
-| organizationNumber | X    | string    | Organization number of the party                                    |
-| tempPersonalNumber | X    | string    | Temporary personal number of the party                              |
-| mailingAddress     | X    | string    | Mailing address of the party                                        |
-| postalCode         | X    | string    | Postal code of the party                                            |
-| city               | X    | string    | City of the party                                                   |
-| country            | X    | string    | Country of the party                                                |
-| emailAddress       | X    | string    | E-mail address of the party                                         |
-| phoneNumber        | X    | string    | Phone number of the party                                           |
-| entry              |      | resource  | Parent Entry                                                        |
+| Attribute          | Sort | Data type          | Comment                                                             |
+|--------------------|------|--------------------|---------------------------------------------------------------------|
+| id                 | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision           | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate        | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy          | X    | string             | User name of the user who created the resource                      |
+| createdByUserId    | X    | string             | User ID of the user who created the resource                        |
+| updatedDate        | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy          | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId    | X    | string             | User ID of the user who updated the resource                        |
+| name               | X    | string             | Name of the party                                                   |
+| personalNumber     | X    | string             | Personal number of the party                                        |
+| organizationNumber | X    | string             | Organization number of the party                                    |
+| tempPersonalNumber | X    | string             | Temporary personal number of the party                              |
+| mailingAddress     | X    | string             | Mailing address of the party                                        |
+| postalCode         | X    | string             | Postal code of the party                                            |
+| city               | X    | string             | City of the party                                                   |
+| country            | X    | string             | Country of the party                                                |
+| emailAddress       | X    | string             | E-mail address of the party                                         |
+| phoneNumber        | X    | string             | Phone number of the party                                           |
+| highlights         |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
+| entry              |      | resource           | Parent Entry                                                        |
 
 ### Expand
 
@@ -246,20 +252,21 @@ A Party accepts the following `expand` values:
 
 A Document is identified by the following attributes:
 
-| Attribute        | Sort | Data type | Comment                                                             |
-|------------------|------|-----------|---------------------------------------------------------------------|
-| id               | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision         | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate      | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy        | X    | string    | User name of the user who created the resource                      |
-| createdByUserId  | X    | string    | User ID of the user who created the resource                        |
-| updatedDate      | X    | timestamp | Timestamp at which the resource was updated                         |
-| updatedBy        | X    | string    | User name of the user who last updated the resource                 |
-| updatedByUserId  | X    | string    | User ID of the user who updated the resource                        |
-| title            | X    | string    | Title of the Document                                               |
-| entry            |      | resource  | Parent Entry                                                        |
-| externalIds      |      | resource  | Related ExternalIds                                                 |
-| documentVersions |      | resource  | Related Document Versions                                           |
+| Attribute        | Sort | Data type          | Comment                                                             |
+|------------------|------|--------------------|---------------------------------------------------------------------|
+| id               | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision         | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate      | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy        | X    | string             | User name of the user who created the resource                      |
+| createdByUserId  | X    | string             | User ID of the user who created the resource                        |
+| updatedDate      | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy        | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId  | X    | string             | User ID of the user who updated the resource                        |
+| title            | X    | string             | Title of the Document                                               |
+| highlights       |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
+| entry            |      | resource           | Parent Entry                                                        |
+| externalIds      |      | resource           | Related ExternalIds                                                 |
+| documentVersions |      | resource           | Related Document Versions                                           |
 
 ### Expand
 
@@ -274,25 +281,26 @@ A Document accepts the following `expand` values:
 
 A DocumentVersion is identified by the following attributes:
 
-| Attribute          | Sort | Data type | Comment                                                             |
-|--------------------|------|-----------|---------------------------------------------------------------------|
-| id                 | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision           | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate        | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy          | X    | string    | User name of the user who created the resource                      |
-| createdByUserId    | X    | string    | User ID of the user who created the resource                        |
-| updatedDate        | X    | timestamp | Timestamp at which the resource was updated                         |
-| updatedBy          | X    | string    | User name of the user who last updated the resource                 |
-| updatedByUserId    | X    | string    | User ID of the user who updated the resource                        |
-| fileName           |      | string    | File name of the document version                                   |
-| checksum           |      | string    | Checksum of the document version                                    |
-| checksumAlgorithm  |      | string    | Checksum algorithm of the document version                          |
-| fileSize           |      | integer   | File size of the document version                                   |
-| contentType        |      | string    | Content type of the document version                                |
-| versionNumber      | X    | integer   | Version number of the document version                              |
-| document           |      | resource  | Parent Document                                                     |
-| electronicDocument |      | resource  | Related ElectronicDocuemnt as uploaded by the upload endpoint       |
-| externalIds        |      | resource  | Related ExternalIds                                                 |
+| Attribute          | Sort | Data type          | Comment                                                             |
+|--------------------|------|--------------------|---------------------------------------------------------------------|
+| id                 | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision           | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate        | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy          | X    | string             | User name of the user who created the resource                      |
+| createdByUserId    | X    | string             | User ID of the user who created the resource                        |
+| updatedDate        | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy          | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId    | X    | string             | User ID of the user who updated the resource                        |
+| fileName           |      | string             | File name of the document version                                   |
+| checksum           |      | string             | Checksum of the document version                                    |
+| checksumAlgorithm  |      | string             | Checksum algorithm of the document version                          |
+| fileSize           |      | integer            | File size of the document version                                   |
+| contentType        |      | string             | Content type of the document version                                |
+| versionNumber      | X    | integer            | Version number of the document version                              |
+| highlights         |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
+| document           |      | resource           | Parent Document                                                     |
+| electronicDocument |      | resource           | Related ElectronicDocuemnt as uploaded by the upload endpoint       |
+| externalIds        |      | resource           | Related ExternalIds                                                 |
 
 ### Expand
 
@@ -306,20 +314,21 @@ A DocumentVersion accepts the following `expand` values:
 
 An ExternalID is identified by the following attributes:
 
-| Attribute       | Sort | Data type | Comment                                                             |
-|-----------------|------|-----------|---------------------------------------------------------------------|
-| id              | X    | string    | (Globally) Unique identifier of the resource                        |
-| revision        | X    | integer   | Revision of the resource used for concurrent modification detection |
-| createdDate     | X    | timestamp | Timestamp at which the resource was created                         |
-| createdBy       | X    | string    | User name of the user who created the resource                      |
-| createdByUserId | X    | string    | User ID of the user who created the resource                        |
-| updatedDate     | X    | timestamp | Timestamp at which the resource was updated                         |
-| updatedBy       | X    | string    | User name of the user who last updated the resource                 |
-| updatedByUserId | X    | string    | User ID of the user who updated the resource                        |
-| externalId      | X    | string    | External ID                                                         |
-| entry           |      | resource  | Parent Entry, if any                                                |
-| document        |      | resource  | Parent Document, if any                                             |
-| documentVersion |      | resource  | Parent Document Version, if any                                     |
+| Attribute       | Sort | Data type          | Comment                                                             |
+|-----------------|------|--------------------|---------------------------------------------------------------------|
+| id              | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision        | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate     | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy       | X    | string             | User name of the user who created the resource                      |
+| createdByUserId | X    | string             | User ID of the user who created the resource                        |
+| updatedDate     | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy       | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId | X    | string             | User ID of the user who updated the resource                        |
+| externalId      | X    | string             | External ID                                                         |
+| highlights      |      | highlight snippets | [Highlight snippets](#highlights) per resource attribute.           |
+| entry           |      | resource           | Parent Entry, if any                                                |
+| document        |      | resource           | Parent Document, if any                                             |
+| documentVersion |      | resource           | Parent Document Version, if any                                     |
 
 ### Expand
 
@@ -348,3 +357,31 @@ The following constraints apply to the `updated*` fields:
 * if `updatedDate` is not specifed, Documaster will automatically fall back to the current date
 * if `updatedBy` and `updatedByUserId` are not specifed, Documaster will automatically fall back to the current user
 * all `updated*` fields require special permssions to be set that are not usually granted to regular users. Ask us for more information.
+
+## Highlights
+
+`highlights` are a list of text snippets that represent one or more search hits per attribute when performing free-text searches. `highlights` will only be returned in Search endpoint responses and only if there are search hits in the text-based attributes of the corresponding resource.
+
+`highlights` have the following format when returned as part of a resource:
+```json
+{
+    ... [other resource attributes]
+
+    "highlights": {
+      "attribute": [
+          "my free-text |=hlstart|search|=hlstop=| hit",
+          "my other free-text |=hlstart|search|=hlstop=| hit in the |=hlstart|search|=hlstop=| response"
+      ]
+    }
+
+    ... [other resource attributes]
+}
+```
+
+The following rules apply to highlights
+
+* `attribute` may be the name of any `attribute` of the resource in which the `highlights` appear. For example `text`;
+* at most 10 highlight snippets will be returned per `attribute`;
+* the `|=hlstart=|` opening "tag" and `|=hlstop=|` closing "tag" identify a highlighted word (or sequence of words) in a highlight snippet;
+* each highlight snippet will contain one or more `|=hlstart=|` opening "tags" and `|=hlstop=|` closing "tags" depending in the search results;
+* `highlights` for an `attribute` will be returned (if any) even if the the `attribute` itself is excluded from the response by means of specifying the `attributes` request field. It is especially useful to exclude the `text` attribute of document versions in Search requests and only rely on the `highlights` considering that the a document may contain large amounts of context.
