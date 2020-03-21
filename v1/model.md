@@ -124,6 +124,7 @@ A Classification is identified by the following attributes:
 | effectivePermissions |      | string array         | Read-only [Effective permissions](#effective-permissions)           |
 | classification       |      | array of resources   | Related Tags                                                        |
 | sections             |      | array of resources   | Related Sections                                                    |
+| externalIds          |      | array of resources   | Related ExternalIds                                                 |
 
 ### Expand
 
@@ -153,6 +154,7 @@ A Tag is identified by the following attributes:
 | highlights           |      | highlight snippets | Read-only [Highlight snippets](#highlights) per resource attribute  |
 | effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)           |
 | classification       |      | resource           | Parent Classification                                               |
+| externalIds          |      | array of resources | Related ExternalIds                                                 |
 
 ### Expand
 
@@ -357,6 +359,9 @@ An ExternalID is identified by the following attributes:
 | externalId           | X    | string             | External ID                                                         |
 | highlights           |      | highlight snippets | Read-only [Highlight snippets](#highlights) per resource attribute  |
 | effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)           |
+| classification       |      | resource           | Parent Classification, if any                                       |
+| section              |      | resource           | Parent Section, if any                                              |
+| tag                  |      | resource           | Parent Tag, if any                                                  |
 | entry                |      | resource           | Parent Entry, if any                                                |
 | document             |      | resource           | Parent Document, if any                                             |
 | documentVersion      |      | resource           | Parent Document Version, if any                                     |
