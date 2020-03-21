@@ -2,7 +2,7 @@
 
 This document specifies information about the Documaster API endpoints:
 - [Basic concepts](#basic-concepts)
-- [Endpoints](#endpoints)
+- [Resource Endpoints](#resource-endpoints)
   - [Fetch endpoint](#fetch-endpoint) - GET /{resource}
   - [Fetch by ID endpoint](#fetch-by-id-endpoint) - GET /{resource}/{id}
   - [Fetch related endpoint](#fetch-related-endpoint) - GET /{resource}/{id}/{related-resource}
@@ -13,6 +13,12 @@ This document specifies information about the Documaster API endpoints:
   - [Search](#search-endpoint) - POST /{resource}/search
   - [Upload](#upload-endpoint) - POST upload-temp/
   - [Download](#download-endpoint) - GET download/{id}
+- [Access Group Endpoints](#access-group-endpoints)
+  - [Fetch access groups endpoint](#fetch-access-groups-endpoint) - GET /access-group
+  - [Fetch access group by ID endpoint](#fetch-access-group-by-id-endpoint) - GET /access-group/{id}
+  - [Create access group endpoint](#create-access-group-endpoint) - POST /access-group
+  - [Update access group endpoint](#update-access-group-endpoint) - PUT /access-group
+  - [Delete access group endpoint](#delete-access-group-endpoint) - DELETE /access-group
 - [Error response format](#error-response-format)
 
 Refer to the [Model specification](model.md) for more information on the `{resource}` path parameter and the contents of `data`, `expand` and `attributes` used in this document.
@@ -65,7 +71,7 @@ All endpoints appear under the following base path:
 
 ---
 
-# Endpoints
+# Resource Endpoints
 
 ## Fetch endpoint
 
@@ -939,6 +945,213 @@ Content-type: */*
 ```
 
 See [RFC 6266](http://tools.ietf.org/html/rfc6266) (description of the Content-Disposition header) and [RFC 5987](https://tools.ietf.org/html/rfc5987#section-3.2) (description of the encoding used in the filename* parameter).
+
+---
+
+# Access Group Endpoints
+
+## Fetch access groups endpoint
+
+Retrieve the access groups, if any.
+
+### Request
+
+```
+GET /access-group?page=1&pageSize=10 HTTP/1.1
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+- `page` (optional)
+  - specifies the page to fetch; 1-based
+  - defaults to 1
+- `pageSize` (optional)
+  - specifies the page size
+  - defaults to 10
+  - maximum allowed value is 1000
+
+### Response
+
+```
+200 OK
+Content-type: application/json
+
+{
+    "data": [
+        {
+            attribute: value,
+            ...
+        },
+        ...
+    ],
+    "hasMore": boolean,
+    "page": integer,
+    "pageSize": integer
+}
+```
+
+- `data`
+  - contains a (potentially empty) list of access groups
+- `hasMore`
+  - specifies whether more pages exist
+- `page`
+  - the requested page
+- `pageSize`
+  - the requested page size
+
+Response codes:
+- `200 OK`
+- `400 Bad request`
+
+---
+
+## Fetch access group by ID endpoint
+
+Retrieves the access group with the specified ID, if any.
+
+### Request
+
+```
+GET /access-group/{id} HTTP/1.1
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+### Response
+
+```
+200 OK
+Content-type: application/json
+
+{
+    "data": {
+        attribute: value,
+        ...
+    }
+}
+```
+
+- `data`
+  - contains the (potentially empty) resource with the specified ID
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
+
+Response codes:
+- `200 OK`
+- `400 Bad request`
+- `403 Unauthorized`
+
+---
+
+## Create access group endpoint
+
+Creates a new access group.
+
+### Request
+
+```
+POST /access-group HTTP/1.1
+Accept: application/json
+Authorization: Bearer {token}
+Content-type: application/json
+
+{
+    "data": { attribute: value, ... }
+}
+```
+
+- `data`
+  - contains the access group to be created
+
+### Response
+
+```
+201 Created
+Content-type: application/json
+
+{
+    "data": {
+        attribute: value,
+        ...
+    }
+}
+```
+
+- `data`
+  - contains the created resource
+
+Response codes:
+- `201 Created`
+- `400 Bad request`
+- `403 Unauthorized`
+
+---
+
+## Update access group endpoint
+
+Updates an existing access group.
+
+### Request
+
+```
+PUT /access-group/{id} HTTP/1.1
+Accept: application/json
+Authorization: Bearer {token}
+Content-type: application/json
+
+{
+    "data": { attribute: value, ... }
+}
+```
+
+- `data` (optional)
+  - contains the access group to be updated
+  - specified attributes will **replace** the existing value
+
+### Response
+
+```
+200 OK
+Content-type: application/json
+
+{
+    "data": {
+        attribute: value,
+        ...
+    }
+}
+```
+
+- `data`
+  - contains the updated resource
+
+Response codes:
+- `200 OK`
+- `400 Bad request`
+- `403 Unauthorized`
+
+---
+
+## Delete access group endpoint
+
+Deletes the specified access group.
+
+### Request
+
+```
+DELETE /access-group/{id} HTTP/1.1
+Authorization: Bearer {token}
+```
+
+### Response
+
+```
+204 No content
+```
+
+Response codes:
+- `204 No content`
+- `400 Bad request`
+- `403 Unauthorized`
 
 ---
 
