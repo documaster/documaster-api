@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8751ab68-ebeb-4e1f-8d7c-4c6f4bd80ba3",
+		"_postman_id": "3e3429a6-064b-4530-ac6e-c1904f17aba9",
 		"name": "Documaster Integration API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -309,6 +309,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get All Access Groups",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/access-group",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"access-group"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -591,6 +623,39 @@
 									"key": "expand",
 									"value": "classifications,entries"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Access Group By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/access-group/7389162",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"access-group",
+								"7389162"
 							]
 						}
 					},
@@ -1327,7 +1392,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"data\": {\r\n        \"title\": \"classification with seciton with seciton and tags\",\r\n        \"description\": \"classification with section and tags\",\r\n        \"sections\": [{\"id\": \"9845e8dd-4d47-4d19-9356-596ee55cb1d4\"}],\r\n        \"tags\": [\r\n            {\r\n                \"title\": \"tag 1\",\r\n                \"description\": \"tag 1\"\r\n            },\r\n            {\r\n                \"title\": \"tag 2\",\r\n                \"description\": \"tag 2\"\r\n            }\r\n        ]\r\n    },\r\n    \"flags\": [\"includeTotal\"],\r\n    \"attributes\": [\r\n        \"tags.title\",\r\n        \"title\", \"createdDate\", \"tags.createdDate\"\r\n    ],\r\n    \"expand\": [\r\n        \"tags\",\r\n        \"sections\"\r\n    ]\r\n}"
+							"raw": "{\r\n    \"data\": {\r\n        \"title\": \"classification with seciton with seciton and tags\",\r\n        \"description\": \"classification with section and tags\",\r\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\"]},\r\n        \"sections\": [{\"id\": \"9845e8dd-4d47-4d19-9356-596ee55cb1d4\"}],\r\n        \"tags\": [\r\n            {\r\n                \"title\": \"tag 1\",\r\n                \"description\": \"tag 1\"\r\n            },\r\n            {\r\n                \"title\": \"tag 2\",\r\n                \"description\": \"tag 2\"\r\n            }\r\n        ]\r\n    },\r\n    \"flags\": [\"includeTotal\"],\r\n    \"attributes\": [\r\n        \"tags.title\",\r\n        \"title\", \"createdDate\", \"tags.createdDate\"\r\n    ],\r\n    \"expand\": [\r\n        \"tags\",\r\n        \"sections\"\r\n    ]\r\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/classification",
@@ -1393,7 +1458,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"title\": \"section with classifications 2\",\n        \"description\": \"section description\",\n        \"classifications\": [\n            {\n                \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n            },\n            {\n                \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n            }\n        ]\n    },\n\t\"expand\": \"classifications\"\n}"
+							"raw": "{\n    \"data\": {\n        \"title\": \"section with classifications 2\",\n        \"description\": \"section description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]},\n        \"classifications\": [\n            {\n                \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n            },\n            {\n                \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n            }\n        ]\n    },\n\t\"expand\": \"classifications\"\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/section",
@@ -1542,6 +1607,105 @@
 					"response": []
 				},
 				{
+					"name": "Create External ID for Section",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"931d2c57-ed01-40bb-8cb8-62cc3445ac08\",\n        \"section\": {\n            \"id\": \"51ca5584-b42e-4f36-b1e7-decf8d5e10d1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create External ID for Classification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"931d2c57-ed01-40bb-8cb8-62cc3445ac08\",\n        \"classification\": {\n            \"id\": \"51ca5584-b42e-4f36-b1e7-decf8d5e10d1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create External ID for Tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"931d2c57-ed01-40bb-8cb8-62cc3445ac08\",\n        \"tag\": {\n            \"id\": \"51ca5584-b42e-4f36-b1e7-decf8d5e10d1\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/external-id",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create External ID for Entry",
 					"request": {
 						"method": "POST",
@@ -1639,6 +1803,39 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create Access Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Human-readable Documaster access group\",\r\n            \"description\": \"Human-readable Documaster access group description\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/access-group",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"access-group"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1663,7 +1860,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"as123d\",\n        \"description\": \"classification description\",\n        \"revision\": 3\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": {\n                    \"id\": \"2320f05d-b4b9-404d-b783-5f2101cf8bee\"\n                }\n            }\n        ]\n    },\n    \"attributes\": [],\n    \"expand\": [\n        \"sections\",\n        \"tags\"\n    ]\n}"
+							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"as123d\",\n        \"description\": \"classification description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\"]},\n        \"revision\": 3\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": {\n                    \"id\": \"2320f05d-b4b9-404d-b783-5f2101cf8bee\"\n                }\n            }\n        ]\n    },\n    \"attributes\": [],\n    \"expand\": [\n        \"sections\",\n        \"tags\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/classification/aefd28fb-7ccd-4d93-bb75-5b2683b07cd9",
@@ -1731,7 +1928,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"title\": \"updated section title\"\n    },\n    \"update\": {\n        \"classifications\": [\n            {\n                \"add\": [\n                    {\n                        \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n                    },\n                    {\n                        \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n                    }\n                ],\n                \"remove\": []\n            }\n        ]\n    }\n}"
+							"raw": "{\n    \"data\": {\n        \"title\": \"updated section title\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    },\n    \"update\": {\n        \"classifications\": [\n            {\n                \"add\": [\n                    {\n                        \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n                    },\n                    {\n                        \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n                    }\n                ],\n                \"remove\": []\n            }\n        ]\n    }\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/section/9845e8dd-4d47-4d19-9356-596ee55cb1d4",
@@ -1913,6 +2110,39 @@
 								"v1",
 								"document-version",
 								"431ed208-9042-4142-a971-5d6eff80f386"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Access Group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Human-readable Documaster access group\",\r\n            \"description\": \"Human-readable Documaster access group description\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/access-group",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"access-group"
 							]
 						}
 					},
@@ -2111,6 +2341,30 @@
 								"v1",
 								"party",
 								"69641e15-fdf4-4116-ae39-57d4555a0f1d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Access Group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/access-group/69641",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"access-group",
+								"69641"
 							]
 						}
 					},
@@ -2364,6 +2618,480 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Document",
+					"item": [
+						{
+							"name": "Free-text phrase search",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"\\\"free-text search for a phrase in a Document text, Document title, and Entry title\\\"\",\n    \"attributes\": [\"documentVersions.fileName\"],\n    \"queryAttributes\": [\"documentVersions.text\", \"entry.title\", \"title\"],\n    \"expand\": [\"entry\", \"documentVersions\"],\n    \"page\": 1,\n    \"pageSize\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/document/search",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Free-text regular search",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"a free-text search that wil match if any of the terms exist are found in the Document text, Document title, or Entry title\",\n    \"attributes\": [\"documentVersions.fileName\"],\n    \"queryAttributes\": [\"documentVersions.text\", \"entry.title\", \"title\"],\n    \"expand\": [\"entry\", \"documentVersions\"],\n    \"page\": 1,\n    \"pageSize\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/document/search",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Free-text regular search in a single Section",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"a free-text search that wil match if any of the terms exist are found in the Document text, Document title, or Entry title\",\n    \"filterQuery\": \"entry.section.id=@sectionId\",\n    \"parameters\": {\"sectionId\": \"8961b525-48b9-4e9a-924b-16b1acae6d2f\"},\n    \"attributes\": [\"documentVersions.fileName\"],\n    \"queryAttributes\": [\"documentVersions.text\", \"entry.title\", \"title\"],\n    \"expand\": [\"entry\", \"documentVersions\"],\n    \"page\": 1,\n    \"pageSize\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/document/search",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Entry",
+					"item": [
+						{
+							"name": "Free-text phrase search",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"\\\"free-text search for a phrase in the Entry title or Tag title\\\"\",\n    \"queryAttributes\": [\"title\", \"tags.title\"],\n    \"expand\": [\"tags\"],\n    \"page\": 1,\n    \"pageSize\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/document/search",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Free-text regular search",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"a free-text search that wil match if any of the terms exist are found in the Entry or Tag title\",\n    \"queryAttributes\": [\"title\", \"tags.title\"],\n    \"expand\": [\"tags\"],\n    \"page\": 1,\n    \"pageSize\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/document/search",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Free-text regular search in a single Section",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": \"a free-text search that wil match if any of the terms exist are found in the Entry or Tag title\",\n    \"filterQuery\": \"section.id=@sectionId\",\n    \"parameters\": {\"sectionId\": \"8961b525-48b9-4e9a-924b-16b1acae6d2f\"},\n    \"queryAttributes\": [\"title\"],\n    \"expand\": [\"section\"],\n    \"page\": 1,\n    \"pageSize\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/document/search",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"document",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Access Control Use Cases",
+			"item": [
+				{
+					"name": "Global administrator w/o rights to change permissions",
+					"item": [
+						{
+							"name": "1. Create Access Group with w/o rights to change permissions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global administrator\",\r\n            \"description\": \"Global administrator\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/access-group",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"access-group"
+									]
+								},
+								"description": "Create an access group with all permissions"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Global read access",
+					"item": [
+						{
+							"name": "1. Create Access Group full read permissions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global read access\",\r\n            \"description\": \"Global read access\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\"]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/access-group",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"access-group"
+									]
+								},
+								"description": "Create an access group with full read permissions"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Global administrator w/ rights to change permissions",
+					"item": [
+						{
+							"name": "1. Create Access Group w/ rights to change permissions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global administrator\",\r\n            \"description\": \"Global administrator\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/access-group",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"access-group"
+									]
+								},
+								"description": "Create an access group with all permissions"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User with access to a single Section and its Classifications",
+					"item": [
+						{
+							"name": "1. Create Access Group with permissions to Upload documents",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Group with access to a single section\",\r\n            \"description\": \"Group with access to a single section\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/access-group",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"access-group"
+									]
+								},
+								"description": "Create an access group with all permissions. Make note of the ID of the access group as you will use it in the next steps."
+							},
+							"response": []
+						},
+						{
+							"name": "2. Create a Section with the desired group permissions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"title\": \"section title\",\n        \"description\": \"section description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    }\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/section",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"section"
+									]
+								},
+								"description": "Create a section and  specify explicitPermissions for the group you just created.\n\nThe ReadObject and ReadChildren permissions are mandatory if you would like members of this group to have access to the section.\n\nGrant CreateChildren, DeleteChildren, UpdateChildren, UpdateChildrenSystemFields permissions based on the use case."
+							},
+							"response": []
+						},
+						{
+							"name": "3. Update the permissions of the classifications linked to the seciton",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\"]}\n    }\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/classification",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"classification"
+									]
+								},
+								"description": "Create a section and  specify explicitPermissions for the group you just created.\n\nThe ReadObject and ReadChildren permissions are mandatory if you would like members of this group to have access to the data in the classification.\n\nGrant CreateChildren, DeleteChildren, UpdateChildren, UpdateChildrenSystemFields permissions based on the use case."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"protocolProfileBehavior": {}
