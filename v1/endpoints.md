@@ -25,7 +25,7 @@ Refer to the [Model specification](model.md) for more information on the `{resou
 
 Additionally, information about the [error response format](#error-response-format) can be found at the end of the document.
 
-(!) Note that any users of the Documaster API must disregard the presense of unknown attributes, (nested) resources, or parameters in any of the endpoints to allow for backwards-compatible expansions of the API.
+(!) Note that any users of the Documaster API must disregard the presence of unknown attributes, (nested) resources, or parameters in any of the endpoints to allow for backwards-compatible expansions of the API.
 
 ---
 
@@ -53,7 +53,7 @@ The following table lists the HTTP status codes used by the web services.
 | 400 Bad Request            | The syntax of the request was invalid.                                                                                                             | HTTP/1.1 400 Bad Request                                        |
 | 401 Unauthorized           | The request was denied due to an invalid or missing access token.                                                                                  | <p>HTTP/1.1 401 Unauthorized</p><p>WWW-Authenticate: Bearer</p> |
 | 403 Forbidden              | The request was denied due to the access token having insufficient privileges to access the requested resource or perform the requested operation. | HTTP/1.1 403 Forbidden                                          |
-| 404 Not Found              | The requested resource does not exist or is not accessible.                                                                                        | HTTP/1.1 404 Not Found                                          |
+| 404 Not Found              | The requested endpoint does not exist.                                                                                                             | HTTP/1.1 404 Not Found                                          |
 | 409 Conflict               | Data was updated by another client after the last read by this client. The client may retry the request.                                           | HTTP/1.1 409 Conflict                                           |
 | 415 Unsupported Media Type | The payload format requested by the client is not supported by the server.                                                                         | HTTP/1.1 415 Unsupported Media Type                             |
 | 500 Internal Server Error  | An internal server error has occurred.                                                                                                             | HTTP/1.1 500 Internal Server Error                              |
@@ -504,7 +504,7 @@ Content-type: application/json
   - `remove` (optional)
     - operates on collection-based attributes only
     - removed the resource with the specified ID from the collection
-    - useful for unlinking Tags fron Sections, for example
+    - useful for unlinking Tags from Sections, for example
 - `flags` (optional)
   - specifies one or more flags requesting additional information
   - `includeTotal`
@@ -870,10 +870,10 @@ Response codes:
 
 We recommend taking the following precautions when performing free-text searches 
 
-* explicitly override the `documentVersions` `attribute`s to be returned in the response as the `text` attribute may unnecessarily increase the payload size significantly for documents that contain a lot of text
-* consider making use of text highlight snippets (`highlights` returned for each resource) instead of retrieving the unabbreviated text attribute (`text`) that may be significantly larger  
+* Explicitly override the `documentVersions` `attribute`s to be returned in the response as the `text` attribute may unnecessarily increase the payload size significantly for documents that contain a lot of text.
+* Consider making use of text highlight snippets (`highlights` returned for each resource) instead of retrieving the unabbreviated text attribute (`text`) that may be significantly larger.  
   See the model specification for more details about `highlights`.
-* in order to receive any `highlights` for the attributes of a related resource, you must request that it is `expanded`. You would still get the primary results in the response even if you do not do this, but you will not receive the corresponding highlighted snippets.
+* In order to receive any `highlights` for the attributes of a related resource, you must request that it is `expanded`. You would still get the primary results in the response even if you do not do this, but you will not receive the corresponding highlighted snippets.
 
 Note that the API will always return the latest document version in document searches if you `expanded` the response with `documentVersions` in order to satisfy the most common use case for the search service - free-text searches in the document text.
 

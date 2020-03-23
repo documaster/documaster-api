@@ -43,7 +43,7 @@ The following table shows the supported range expressions:
 | attribute = [@param1:@param2} | date, number                   | The value of an attribute is within the range defined by the two parameters.             | Start is inclusive, end is exclusive.                                    |
 | attribute = {@param1:@param2] | date, number                   | The value of an attribute is within the range defined by the two parameters.             | Start is exclusive, end is inclusive.                                    |
 
-Note that a ***** character in the parameter value denotes *any value*.
+Note that a __*__ character in the parameter value denotes *any value*.
 
 ## Grouping expressions
 
