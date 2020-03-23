@@ -29,7 +29,7 @@ You can jump right to the section you are interested in:
     - [Explicit permissions use cases](#explicit-permissions-use-cases)
   - [Service permissions](#service-permissions)
 
-(!) Note that any users of the Documaster API must disregard the presense of unknown attributes, (nested) resources, or parameters in any of the endpoints or resources to allow for backwards-compatible expansions of the API.
+(!) Note that any users of the Documaster API must disregard the presence of unknown attributes, (nested) resources, or parameters in any of the endpoints or resources to allow for backwards-compatible expansions of the API.
 
 ---
 
@@ -67,7 +67,7 @@ The `attributes` field allows users to specify the exact attributes to be return
 
 When `attributes` is not specified, responses will include all single-valued attributes of the requested resource.
 
-When `attributes` is specified, the `id` and `revision` attributes will always be returned for all requested resources regardless of the actual list of requested attributes.
+When `attributes` is specified, the `id`, `revision`, and `effectivePermissions` attributes will always be returned for all requested resources regardless of the actual list of requested attributes.
 
 The model sections below list all supported `attributes` values for each resource.
 
@@ -401,17 +401,17 @@ There are certain model constraints in play for created* and updated* fields.
 
 The following constraints apply to the `created*` fields:
 * `createdBy` and `createdByUserId` must be specified together. Specifying only one of the two will result in a Bad request.
-* if `createdDate` is not specifed, Documaster will automatically fall back to the current date
-* if `createdBy` and `createdByUserId` are not specifed, Documaster will automatically fall back to the current user
-* all `created*` fields require special permssions to be set that are not usually granted to regular users. Ask us for more information.
+* if `createdDate` is not specified, Documaster will automatically fall back to the current date
+* if `createdBy` and `createdByUserId` are not specified, Documaster will automatically fall back to the current user
+* all `created*` fields require special permissions to be set that are not usually granted to regular users. Ask us for more information.
 
-### Update fields
+### Updated fields
 
 The following constraints apply to the `updated*` fields:
 * `updatedBy` and `updatedByUserId` must be specified together. Specifying only one of the two will result in a Bad request.
-* if `updatedDate` is not specifed, Documaster will automatically fall back to the current date
-* if `updatedBy` and `updatedByUserId` are not specifed, Documaster will automatically fall back to the current user
-* all `updated*` fields require special permssions to be set that are not usually granted to regular users. Ask us for more information.
+* if `updatedDate` is not specified, Documaster will automatically fall back to the current date
+* if `updatedBy` and `updatedByUserId` are not specified, Documaster will automatically fall back to the current user
+* all `updated*` fields require special permissions to be set that are not usually granted to regular users. Ask us for more information.
 
 ## Highlights
 

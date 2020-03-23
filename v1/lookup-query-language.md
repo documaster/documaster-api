@@ -83,7 +83,7 @@ This is the simplest and most intuitive approach and the one that you are likely
 
 ### 2. Aliased reference chaining
 
-With aliased reference chaining you gain more control over queries that contain expressions on multiple attributes of the same related resource at the cost of introducing some additional complexity. Let us explaing this with an example.
+With aliased reference chaining you gain more control over queries that contain expressions on multiple attributes of the same related resource at the cost of introducing some additional complexity. Let us explain this with an example.
 
 Suppose you want to find an Entry that belongs to a Section and is linked to two Tags with different IDs. You would be inclined to write the following query __which would not produce any results__:
 
@@ -91,7 +91,7 @@ Suppose you want to find an Entry that belongs to a Section and is linked to two
 section.id = @sectionId && tags.id = @tagId1 && tags.id = @tagId2
 ```
 
-As already suggested, the query will always return 0 results. The reason why this happens is that with plain reference chaining each reference is always considered to pertain to a single related entity. As such, the `tags` above would be mapped to a single related tag by the query parser. As you can probably already guess, a Tag has only one unqiue identifier (id) and the two statements in the example above (`tags.id = @tagId1` and `tags.id = @tagId2`) essentially cancel each other out.
+As already suggested, the query will always return 0 results. The reason why this happens is that with plain reference chaining each reference is always considered to pertain to a single related entity. As such, the `tags` above would be mapped to a single related tag by the query parser. As you can probably already guess, a Tag has only one unique identifier (id) and the two statements in the example above (`tags.id = @tagId1` and `tags.id = @tagId2`) essentially cancel each other out.
 
 To signal to the query parser that you want these references to be treated as references to two __distinct__ related Tags, you can _alias_ (and re-use) your references. With aliased reference chaining, the query will be re-written to:
 
@@ -99,7 +99,7 @@ To signal to the query parser that you want these references to be treated as re
 section.id = @sectionId && tags#myTag1.id = @tagId1 && tags#myTag2.id = @tagId2
 ```
 
-Pay special attention ot the addition of the `#myTag1` and `#myTag2` aliases assigned to each of the `tags` references. This will signal to the query parser that the two references refer to two __distinct__ related tags and your query will now have the desired behavior.
+Pay special attention to the addition of the `#myTag1` and `#myTag2` aliases assigned to each of the `tags` references. This will signal to the query parser that the two references refer to two __distinct__ related tags and your query will now have the desired behavior.
 
 ### 3. Mixed reference chaining
 
