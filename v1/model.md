@@ -215,6 +215,7 @@ An Entry is identified by the following attributes:
 | updatedByUserId      | X    | string             | User ID of the user who updated the resource                        |
 | title                | X    | string             | Title of the Entry                                                  |
 | description          | X    | string             | Description of the Entry                                            |
+| entryDate            | X    | date               | Date of the Entry                                                   |
 | highlights           |      | highlight snippets | Read-only [Highlight snippets](#highlights) per resource attribute  |
 | effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)           |
 | section              |      | resource           | Parent Section                                                      |

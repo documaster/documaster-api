@@ -69,6 +69,10 @@ All endpoints appear under the following base path:
 - Dates must be encoded as **ISO 8601** strings prior to sending them to the web services.
 - Dates are returned by the web services as **ISO 8601** formatted strings.
 
+In plain English:
+- `timestamp` attributes have to be be in the following format: `2020-01-01T01:01:01.000+01:00`
+- `date` attributes have to be be in the following format: `2020-01-01`
+
 ---
 
 # Resource Endpoints
