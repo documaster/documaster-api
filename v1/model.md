@@ -279,22 +279,22 @@ The Document resource is identified by `document` in URLs.
 
 A Document is identified by the following attributes:
 
-| Attribute            | Sort | Data type          | Comment                                                             |
-|----------------------|------|--------------------|---------------------------------------------------------------------|
-| id                   | X    | string             | (Globally) Unique identifier of the resource                        |
-| revision             | X    | integer            | Revision of the resource used for concurrent modification detection |
-| createdDate          | X    | timestamp          | Timestamp at which the resource was created                         |
-| createdBy            | X    | string             | User name of the user who created the resource                      |
-| createdByUserId      | X    | string             | User ID of the user who created the resource                        |
-| updatedDate          | X    | timestamp          | Timestamp at which the resource was updated                         |
-| updatedBy            | X    | string             | User name of the user who last updated the resource                 |
-| updatedByUserId      | X    | string             | User ID of the user who updated the resource                        |
-| title                | X    | string             | Title of the Document                                               |
-| highlights           |      | highlight snippets | Read-only [Highlight snippets](#highlights) per resource attribute  |
-| effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)           |
-| entry                |      | resource           | Parent Entry                                                        |
-| externalIds          |      | resource           | Related ExternalIds                                                 |
-| documentVersions     |      | resource           | Related Document Versions                                           |
+| Attribute            | Sort | Data type          | Comment                                                                                                                          |
+|----------------------|------|--------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| id                   | X    | string             | (Globally) Unique identifier of the resource                                                                                     |
+| revision             | X    | integer            | Revision of the resource used for concurrent modification detection                                                              |
+| createdDate          | X    | timestamp          | Timestamp at which the resource was created                                                                                      |
+| createdBy            | X    | string             | User name of the user who created the resource                                                                                   |
+| createdByUserId      | X    | string             | User ID of the user who created the resource                                                                                     |
+| updatedDate          | X    | timestamp          | Timestamp at which the resource was updated                                                                                      |
+| updatedBy            | X    | string             | User name of the user who last updated the resource                                                                              |
+| updatedByUserId      | X    | string             | User ID of the user who updated the resource                                                                                     |
+| title                | X    | string             | Title of the Document. Recommendation: set the title to the document version filename without the extension in your integration. |
+| highlights           |      | highlight snippets | Read-only [Highlight snippets](#highlights) per resource attribute                                                               |
+| effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)                                                                        |
+| entry                |      | resource           | Parent Entry                                                                                                                     |
+| externalIds          |      | resource           | Related ExternalIds                                                                                                              |
+| documentVersions     |      | resource           | Related Document Versions                                                                                                        |
 
 ### Expand
 
