@@ -91,7 +91,7 @@ Response:
         "id": "58dc1089-de65-4b98-a1f6-2f162c21dd05",
         "revision": 1,
         "title": "Employees",
-        "__resources": {
+        "resources": {
             "self": "classification/58dc1089-de65-4b98-a1f6-2f162c21dd05"
         }
     }
@@ -144,7 +144,7 @@ Content-type: application/json
                 "classification": {"id": "58dc1089-de65-4b98-a1f6-2f162c21dd05"}
             }
         },
-        "__resources": {
+        "resources": {
             "self": "classification/58dc1089-de65-4b98-a1f6-2f162c21dd05",
             "tags": {
                 "self": "classification/58dc1089-de65-4b98-a1f6-2f162c21dd05/tags"
@@ -191,7 +191,7 @@ Content-type: application/json
         "revision": 1,
         "title": "John Doe",
         "classification": {"id": "58dc1089-de65-4b98-a1f6-2f162c21dd05"},
-        "__resources": {
+        "resources": {
             "self": "classification/58dc1089-de65-4b98-a1f6-2f162c21dd05/tag/645fe6ed-2c50-4fc2-ac37-8320f3b5eff0",
             "classification": {
                 "self": "classification/58dc1089-de65-4b98-a1f6-2f162c21dd05"
@@ -247,7 +247,7 @@ Response:
             "revision": 1,
             "title": "John Doe",
             "classification": {"id": "0e06cfd4-722b-4c14-aab3-1753e5df5761"},
-            "__resources": {
+            "resources": {
                 "self": "tag/bfe49142-895e-4db9-9255-d83d615848a9",
                 "classification": {
                     "self": "classification/0e06cfd4-722b-4c14-aab3-1753e5df5761",
@@ -259,7 +259,7 @@ Response:
             "revision": 1,
             "title": "Jane Doe",
             "classification": {"id": "0e06cfd4-722b-4c14-aab3-1753e5df5761"},
-            "__resources": {
+            "resources": {
                 "self": "tag/3ac6c707-d3d8-47f0-b3c5-53832dd4a83f",
                 "classification": {
                     "self": "classification/0e06cfd4-722b-4c14-aab3-1753e5df5761",
@@ -309,7 +309,7 @@ Content-type: application/json
         "id": "75c4c084-b790-480b-bc00-0aa4698f90ac",
         "revision": 1,
         "title": "HR",
-        "__resources": {
+        "resources": {
             "self": "section/75c4c084-b790-480b-bc00-0aa4698f90ac"
         }
     }
@@ -368,7 +368,7 @@ Content-type: application/json
                 "classification": {"id": "d3a676f0-ea36-47b6-909b-361dbaade968"}
             }
         ],
-        "__resources": {
+        "resources": {
             "self": "entry/55cba765-ea62-48ca-9c81-9ca77e2275a1",
             "section": {
                 "self": "section/bf3d420f-797a-4629-9274-3ad0ba80ec9d",
@@ -450,7 +450,7 @@ Content-type: application/json
             {"id": "cf3995b7-9614-4cf4-b264-887febf92f84"},
             {"id": "870769f1-9524-47a7-bb2e-afdfab167a0c"}
         ],
-        "__resources": {
+        "resources": {
             "self": "entry/55cba765-ea62-48ca-9c81-9ca77e2275a1",
             "section": {
                 "self": "section/bf3d420f-797a-4629-9274-3ad0ba80ec9d",
@@ -499,7 +499,7 @@ Content-type: application/json
         "revision": 2,
         "title": "Changed invoice number", 
         "section": {"id": "c2024523-3b13-4ccf-bcdf-e0746d1ed477"},
-        "__resources": {
+        "resources": {
             "self": "entry/55cba765-ea62-48ca-9c81-9ca77e2275a1",
             "section": {
                 "self": "section/bf3d420f-797a-4629-9274-3ad0ba80ec9d",
@@ -564,7 +564,7 @@ Response:
             "title": "Changed invoice number", 
             "description": "Invoice description",
             "section": {"id": "c2024523-3b13-4ccf-bcdf-e0746d1ed477"},
-            "__resources": {
+            "resources": {
                 "self": "entry/55cba765-ea62-48ca-9c81-9ca77e2275a1",
                 "section": {
                     "self": "section/c2024523-3b13-4ccf-bcdf-e0746d1ed477",
@@ -628,7 +628,7 @@ Response:
                 {"title": "John Doe", "classification": {"title": "Employees"}},
                 {"title": "Jane Doe", "classification": {"title": "Employees"}}
             ],
-            "__resources": {
+            "resources": {
                 "self": "entry/55cba765-ea62-48ca-9c81-9ca77e2275a1",
                 "section": {
                     "self": "section/c2024523-3b13-4ccf-bcdf-e0746d1ed477",
@@ -701,7 +701,7 @@ Response:
                     "highlights": {"text": ["[shortened for brevity] ... |=hlstart=|Date|=hlstop=| of |=hlstart=|termination|=hlstop=| ... [shortened for brevity]"]}
                 }
             ],
-            "__resources": {
+            "resources": {
                 "self": "document/bfe49142-895e-4db9-9255-d83d615848a9",
                 "entry": {
                     "self": "entry/0e06cfd4-722b-4c14-aab3-1753e5df5761",

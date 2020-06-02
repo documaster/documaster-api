@@ -118,7 +118,7 @@ Content-type: application/json
         {
             attribute: value,
             ...,
-            "__resources": {
+            "resources": {
                 "self": "{resource}/{id}",
                 attribute: {
                     "self": "{resource}/{id}/{related-resource}"
@@ -142,8 +142,8 @@ Content-type: application/json
 
 - `data`
   - contains a (potentially empty) list of the resources matching the specified lookup request
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -215,7 +215,7 @@ Content-type: application/json
     "data": {
         attribute: value,
         ...,
-        "__resources": {
+        "resources": {
             "self": "{resource}/{id}",
             attribute: {
                 "self": "{resource}/{id}/{related-resource}"
@@ -234,8 +234,8 @@ Content-type: application/json
 
 - `data`
   - contains the (potentially empty) resource with the specified ID
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -310,7 +310,7 @@ Content-type: application/json
         {
             attribute: value,
             ...,
-            "__resources": {
+            "resources": {
                 "self": "{resource}/{id}",
                 attribute: {
                     "self": "{resource}/{id}/{related-resource}"
@@ -334,8 +334,8 @@ Content-type: application/json
 
 - `data`
   - contains a (potentially empty) list of the resources matching the specified lookup request
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -416,7 +416,7 @@ Content-type: application/json
     "data": {
         attribute: value,
         ...,
-        "__resources": {
+        "resources": {
             "self": "{resource}/{id}",
             attribute: {
                 "self": "{resource}/{id}/{related-resource}"
@@ -435,8 +435,8 @@ Content-type: application/json
 
 - `data`
   - contains the created resource
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -536,7 +536,7 @@ Content-type: application/json
     "data": {
         attribute: value,
         ...,
-        "__resources": {
+        "resources": {
             "self": "{resource}/{id}",
             attribute: {
                 "self": "{resource}/{id}/{related-resource}"
@@ -555,8 +555,8 @@ Content-type: application/json
 
 - `data`
   - contains the updated resource
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -670,7 +670,7 @@ Content-type: application/json
         {
             attribute: value,
             ...,
-            "__resources": {
+            "resources": {
                 "self": "{resource}/{id}",
                 attribute: {
                     "self": "{resource}/{id}/{related-resource}"
@@ -695,8 +695,8 @@ Content-type: application/json
 
 - `data`
   - contains a (potentially empty) list of the resources matching the specified lookup request
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -807,7 +807,7 @@ Content-type: application/json
         {
             attribute: value,
             ...,
-            "__resources": {
+            "resources": {
                 "self": "{resource}/{id}",
                 attribute: {
                     "self": "{resource}/{id}/{related-resource}"
@@ -832,8 +832,8 @@ Content-type: application/json
 
 - `data`
   - contains a (potentially empty) list of the resources matching the specified free-text search request
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
-- `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
+- `resources`
   - lists additional information per returned resource
   - `self`
     - contains a link to fetch the current resource
@@ -1037,7 +1037,7 @@ Content-type: application/json
 
 - `data`
   - contains the (potentially empty) resource with the specified ID
-  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `__resources`
+  - at most 10 nested resources per type will be returned; more information on retrieving additional resources can be found in `resources`
 
 Response codes:
 - `200 OK`
