@@ -886,11 +886,11 @@ Note that the API will always return the latest document version in document sea
 
 By specifying the `enableAdvancedFTS` flag, certain characters will gain special meaning.
 
-- Double quote (") allow you to perform phrase searches for exact matches. For example: "This is my phrase search that requires an exact match"
+- Double quotes (") allow you to perform phrase searches for exact matches. For example: "This is my phrase search that requires an exact match"
 - Asterisk (*) and question mark (?) allow you to perform wildcard searches.
   - Asterisks match zero or more consecutive characters at the beginning, middle, or end of a string. For example: \*master, Documas\*, Doc\*ter
   - Question marks match a single character at the beginning, middle, or end of a string. For example: ?ocumaster, Documaste?, Do?umaster
-- Tilde (~) allow you to perform fuzzy search and proximity search.
+- Tilde (~) allows you to perform fuzzy search and proximity search.
   - When used with double-quotes ("phrase search"~3), it allows you to search for a phrase whose participating words are N words apart
   - When used with a single word (Kristian~), it allows you to search for a word with up to two edits to get a match. For example: Kristian~1 will also match Cristian, but Kristian~2 (which is equivalent to Kristian~) will also match Christian.
 - Plus (+) allows you to request that a word or phrase appears in the resultset. For example: +Documaster or +"Documaster search"
