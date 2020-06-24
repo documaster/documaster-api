@@ -791,6 +791,7 @@ Content-type: application/json
   - defaults to 10
 - `flags` (optional)
   - specifies one or more flags requesting additional information
+  - specifying the `enableAdvancedFTS` flag will enable advanced full-text search capabilities in the `query` field. See the `Advanced free-text-search` section below for more information
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -880,6 +881,21 @@ We recommend taking the following precautions when performing free-text searches
 * In order to receive any `highlights` for the attributes of a related resource, you must request that it is `expanded`. You would still get the primary results in the response even if you do not do this, but you will not receive the corresponding highlighted snippets.
 
 Note that the API will always return the latest document version in document searches if you `expanded` the response with `documentVersions` in order to satisfy the most common use case for the search service - free-text searches in the document text.
+
+### Advanced free-text search
+
+By specifying the `enableAdvancedFTS` flag, certain characters will gain special meaning.
+
+- Double quotes (") allow you to perform phrase searches for exact matches. For example: "This is my phrase search that requires an exact match"
+- Asterisk (*) and question mark (?) allow you to perform wildcard searches.
+  - Asterisks match zero or more consecutive characters at the beginning, middle, or end of a string. For example: \*master, Documas\*, Doc\*ter
+  - Question marks match a single character at the beginning, middle, or end of a string. For example: ?ocumaster, Documaste?, Do?umaster
+- Tilde (~) allows you to perform fuzzy search and proximity search.
+  - When used with double-quotes ("phrase search"~3), it allows you to search for a phrase whose participating words are N words apart
+  - When used with a single word (Kristian~), it allows you to search for a word with up to two edits to get a match. For example: Kristian~1 will also match Cristian, but Kristian~2 (which is equivalent to Kristian~) will also match Christian.
+- Plus (+) allows you to request that a word or phrase appears in the resultset. For example: +Documaster or +"Documaster search"
+- Minus (-) allows you to request that a word or phrase does not appear in the resultset. For example: -Documaster or -"Documaster search"
+- Caret (^) allows you to boost a word or a phrase so that it gains a higher relevance score. For example: Documaster^1.3 or bug^0.3
 
 ---
 
