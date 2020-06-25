@@ -18,6 +18,7 @@ You can jump right to the section you are interested in:
   - [Section](#section)
   - [Entry](#entry)
   - [Party](#party)
+  - [Comment](#comment)
   - [Document](#document)
   - [DocumentVersion](#document-version)
   - [ExternalId](#external-id)
@@ -223,6 +224,7 @@ An Entry is identified by the following attributes:
 | documents            |      | array of resources | Related Documents                                                   |
 | externalIds          |      | array of resources | Related ExternalIds                                                 |
 | parties              |      | array of resources | Related Parties                                                     |
+| comments             |      | array of resources | Related Comments                                                    |
 
 ### Expand
 
@@ -233,6 +235,7 @@ An Entry accepts the following `expand` values:
 - documents
 - externalIds
 - parties
+- comments
 
 ## Party
 
@@ -269,6 +272,32 @@ A Party is identified by the following attributes:
 ### Expand
 
 A Party accepts the following `expand` values:
+- entry
+
+## Comment
+
+### Data
+
+The Comment resource is identified by `comment` in URLs.
+
+A Comment is identified by the following attributes:
+
+| Attribute            | Sort | Data type          | Comment                                                             |
+|----------------------|------|--------------------|---------------------------------------------------------------------|
+| id                   | X    | string             | (Globally) Unique identifier of the resource                        |
+| revision             | X    | integer            | Revision of the resource used for concurrent modification detection |
+| createdDate          | X    | timestamp          | Timestamp at which the resource was created                         |
+| createdBy            | X    | string             | User name of the user who created the resource                      |
+| createdByUserId      | X    | string             | User ID of the user who created the resource                        |
+| updatedDate          | X    | timestamp          | Timestamp at which the resource was updated                         |
+| updatedBy            | X    | string             | User name of the user who last updated the resource                 |
+| updatedByUserId      | X    | string             | User ID of the user who updated the resource                        |
+| text                 | X    | string             | Comment text                                                        |
+| entry                |      | resource           | Parent Entry                                                        |
+
+### Expand
+
+A Comment accepts the following `expand` values:
 - entry
 
 ## Document
