@@ -84,7 +84,7 @@ Retrieve the resources of the specified type, if any.
 ### Request
 
 ```
-GET /{resource}?page=1&pageSize=10&flags=includeTotal&expand=resource1,resource2&attributes=field1,resource1.field1 HTTP/1.1
+GET /{resource}?page=1&pageSize=10&flags=includeTotal&expand=resource1,resource2&attributes=field1,resource1.field1&sortField=title&sortOrder=desc HTTP/1.1
 Accept: application/json
 Authorization: Bearer {token}
 ```
@@ -106,6 +106,10 @@ Authorization: Bearer {token}
   - specifies additional resources to be included in the response
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
+- `sortField` (optional)
+  - specifies the field of the fetched object by which the response to be sorted. Works only in conjunction with **sortOrder**
+- `sortOrder` (optional)
+  - specifies the sort order in which the response to be ordered asc or desc
 
 ### Response
 
