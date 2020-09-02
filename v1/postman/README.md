@@ -2,7 +2,7 @@
 
 The `Documaster Integration API.postman_collection.json` file contains a v2.1 collection that can be imported into Postman.
 
-It contains close to 70 sample requests exhibiting the functionality of the following endpoints for each of the publicly-exposed resources:
+It contains close to 100 sample requests exhibiting the functionality of the following endpoints for each of the publicly-exposed resources:
 - Fetch endpoint
 - Fetch by ID endpoint
 - Fetch related endpoint
