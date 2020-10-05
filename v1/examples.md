@@ -472,6 +472,8 @@ Content-type: application/json
 
 Update the title of an Entry and move it to a different Section without changing anything else.
 
+_Note that users without access to the previous Section would be able to see changes done to the Entry while it was in it!. See [Note on change logs](access-control.md#note-on-change-logs) for more information._
+
 Request:
 ```
 PUT /entry HTTP/1.1
@@ -523,6 +525,8 @@ All other fields will be left intact meaning:
 - previously linked Tags will remain the same;
 - previously created Parties will remain the same;
 - unmodified attributes will remain the same.
+
+_Note that users without access to the previous Section would be able to see changes done to the Entry while it was in it!. See [Note on change logs](access-control.md#note-on-change-logs) for more information._
 
 Request:
 ```
