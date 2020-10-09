@@ -14,7 +14,8 @@ This document specifies information about the Documaster API endpoints:
   - [Upload](#upload-endpoint) - POST upload-temp/
   - [Download](#download-endpoint) - GET download/{id}
 - [Access Group Endpoints](#access-group-endpoints)
-  - [Fetch access groups endpoint](#fetch-access-groups-endpoint) - GET /access-group
+  - [Fetch access groups endpoint](#fetch-all-access-groups-endpoint) - GET /access-group
+  - [Fetch user access groups endpoint](#fetch-my-access-groups-endpoint) - GET /access-group/my
   - [Fetch access group by ID endpoint](#fetch-access-group-by-id-endpoint) - GET /access-group/{id}
   - [Create access group endpoint](#create-access-group-endpoint) - POST /access-group
   - [Update access group endpoint](#update-access-group-endpoint) - PUT /access-group
@@ -997,7 +998,7 @@ See [RFC 6266](http://tools.ietf.org/html/rfc6266) (description of the Content-D
 
 # Access Group Endpoints
 
-## Fetch access groups endpoint
+## Fetch all access groups endpoint
 
 Retrieve the access groups, if any.
 
@@ -1005,6 +1006,61 @@ Retrieve the access groups, if any.
 
 ```
 GET /access-group?page=1&pageSize=10 HTTP/1.1
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+- `page` (optional)
+  - specifies the page to fetch; 1-based
+  - defaults to 1
+- `pageSize` (optional)
+  - specifies the page size
+  - defaults to 10
+  - maximum allowed value is 1000
+
+### Response
+
+```
+200 OK
+Content-type: application/json
+
+{
+    "data": [
+        {
+            attribute: value,
+            ...
+        },
+        ...
+    ],
+    "hasMore": boolean,
+    "page": integer,
+    "pageSize": integer
+}
+```
+
+- `data`
+  - contains a (potentially empty) list of access groups
+- `hasMore`
+  - specifies whether more pages exist
+- `page`
+  - the requested page
+- `pageSize`
+  - the requested page size
+
+Response codes:
+- `200 OK`
+- `400 Bad request`
+
+---
+
+## Fetch my access groups endpoint
+
+Retrieve the user access groups, if any.
+
+### Request
+
+```
+GET /access-group/my?page=1&pageSize=10 HTTP/1.1
 Accept: application/json
 Authorization: Bearer {token}
 ```
