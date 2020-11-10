@@ -34,15 +34,15 @@ Content-type: application/octet-stream
 
 Response:
 ```
-200 OK
+201 Created
 Content-type: application/json
 
 {
-    "data": {
-        "id": "db7c7593-32d3-4298-bbf7-681237bd58ef",
-    }
+    "id": "db7c7593-32d3-4298-bbf7-681237bd58ef"
 }
 ```
+
+Other fields may be included in the response as well.
 
 ## Download
 
