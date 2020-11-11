@@ -934,9 +934,8 @@ The Content-Disposition header must specify at least one of the two parameters f
 Content-type: application/json
 
 {
-    "data": {
-        "id": string,
-    }
+    "id": string,
+    ...
 }
 ```
 
