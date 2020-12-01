@@ -355,6 +355,7 @@ A DocumentVersion is identified by the following attributes:
 | checksumAlgorithm    |      | string             | Checksum algorithm of the document version                          |
 | fileSize             |      | integer            | File size of the document version                                   |
 | contentType          |      | string             | Content type of the document version                                |
+| text                 |      | string             | Extracted text from the document version, if any                    |
 | versionNumber        | X    | integer            | Version number of the document version                              |
 | highlights           |      | highlight snippets | Read-only [Highlight snippets](#highlights) per resource attribute  |
 | effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)           |
