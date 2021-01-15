@@ -21,7 +21,7 @@ This document specifies information about the Documaster API endpoints:
   - [Delete access group endpoint](#delete-access-group-endpoint) - DELETE /access-group
 - [Error response format](#error-response-format)
 
-Refer to the [Model specification](model.md) for more information on the `{resource}` path parameter and the contents of `data`, `expand` and `attributes` used in this document.
+Refer to the [Model specification](model.md) for more information on the `{resource}` path parameter and the contents of `data`, `expand`, `expandPageSize` and `attributes` used in this document.
 
 Additionally, information about the [error response format](#error-response-format) can be found at the end of the document.
 
@@ -392,6 +392,7 @@ Content-type: application/json
     "data": { attribute: value, ... },
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [ string, ... ]
 }
 ```
@@ -407,6 +408,8 @@ Content-type: application/json
     - defaults to false
 - `expand` (optional)
   - specifies additional resources to be included in the response
+- `expandPageSize` (optional)
+  - specifies the page size for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -433,6 +436,7 @@ Content-type: application/json
     },
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [ string, ... ]
 }
 ```
@@ -461,6 +465,8 @@ Content-type: application/json
   - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
+- `expandPageSize` (optional)
+  - the requested map of page sizes for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
@@ -493,6 +499,7 @@ Content-type: application/json
     },
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [ string, ... ]
 }
 ```
@@ -521,6 +528,8 @@ Content-type: application/json
     - defaults to false
 - `expand` (optional)
   - specifies additional resources to be included in the response
+- `expandPageSize` (optional)
+  - specifies the page size for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -553,6 +562,7 @@ Content-type: application/json
     },
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [ string, ... ],   
 }
 ```
@@ -581,6 +591,8 @@ Content-type: application/json
   - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
+- `expandPageSize` (optional)
+  - the requested map of page sizes for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
@@ -635,6 +647,7 @@ Content-type: application/json
     "sort": [ { "field": string, "order": "asc|desc"} , ... ],
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [ string, ...]
 }
 ```
@@ -660,6 +673,8 @@ Content-type: application/json
     - defaults to false
 - `expand` (optional)
   - specifies additional resources to be included in the response
+- `expandPageSize` (optional)
+  - specifies the page size for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -693,6 +708,7 @@ Content-type: application/json
     "sort": [ { "field": string, "order": "asc|desc"} , ... ],
     "flags": { "includeTotal": boolean },
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [string, ...]
 }
 ```
@@ -730,6 +746,8 @@ Content-type: application/json
   - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
+- `expandPageSize` (optional)
+  - the requested map of page sizes for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
@@ -772,6 +790,7 @@ Content-type: application/json
     "pageSize" number,
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [ string, ...]
 }
 ```
@@ -798,6 +817,8 @@ Content-type: application/json
   - specifying the `enableAdvancedFTS` flag will enable advanced full-text search capabilities in the `query` field. See the `Advanced free-text-search` section below for more information
 - `expand` (optional)
   - specifies additional resources to be included in the response
+- `expandPageSize` (optional)
+  - specifies the page size for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -831,6 +852,7 @@ Content-type: application/json
     "total": integer,
     "flags": { },
     "expand": [ string, ... ],
+    "expandPageSize": {"string": integer, ... },
     "attributes": [string, ...]
 }
 ```
@@ -867,6 +889,8 @@ Content-type: application/json
   - the requested list of flags
 - `expand` (optional)
   - the requested list of additional resources
+- `expandPageSize` (optional)
+  - the requested map of page sizes for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
