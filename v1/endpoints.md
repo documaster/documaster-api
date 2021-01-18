@@ -632,7 +632,7 @@ Content-type: application/json
     "parameters": { string: string, ... },
     "page": number,
     "pageSize" number,
-    "sort": [ { string: asc|desc} , ... ],
+    "sort": [ { "field": string, "order": "asc|desc"} , ... ],
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "attributes": [ string, ...]
@@ -651,7 +651,7 @@ Content-type: application/json
   - defaults to 10
 - `sort` (optional)
   - specifies sort order to be applied on one or more attributes
-  - an array of field : asc|desc objects
+  - an array of sort objects
 - `flags` (optional)
   - specifies one or more flags requesting additional information
   - `includeTotal`
@@ -690,7 +690,7 @@ Content-type: application/json
     "hasMore": boolean,
     "page": integer,
     "pageSize": integer,
-    "sort": [ { string: asc|desc } , ... ],
+    "sort": [ { "field": string, "order": "asc|desc"} , ... ],
     "flags": { "includeTotal": boolean },
     "expand": [ string, ... ],
     "attributes": [string, ...]
@@ -725,7 +725,7 @@ Content-type: application/json
   - the requested page size
 - `sort` (optional)
   - the specified sort order
-  - an array of field : asc|desc objects
+  - an array of sort objects
 - `flags`
   - the requested list of flags
 - `expand` (optional)
