@@ -116,7 +116,8 @@ Content-type: application/json
             {"title": "Jane Doe"}
         ]
     },
-    "expand": ["tags"]
+    "expand": ["tags"],
+    "expandPageSize": {"tags": 12}
 }
 ```
 
@@ -154,7 +155,8 @@ Content-type: application/json
             }
         }
     },
-    "expand": ["tags"]
+    "expand": ["tags"],
+    "expandPageSize": {"tags": 12}
 }
 ```
 
@@ -339,7 +341,8 @@ Content-type: application/json
             {"id": "40569fbd-e4a3-49e4-97ce-fc6e3bb9dadf"}
         ]
     },
-    "expand": ["tags"]
+    "expand": ["tags"],
+    "expandPageSize": {"tags": 14}
 }
 ```
 
@@ -380,7 +383,9 @@ Content-type: application/json
                 "pageSize": 2,
             }
         }
-    }
+    },
+    "expand": ["tags"],
+    "expandPageSize": {"tags": 14}
 }
 ```
 
@@ -431,6 +436,7 @@ Content-type: application/json
         ]
     },
     "expand": ["parties"],
+    "expandPageSize": {"parties": 12},
     "attributes": ["parties.id"]
 }
 ```
@@ -464,6 +470,7 @@ Content-type: application/json
         }
     },
     "expand": ["parties"],
+    "expandPageSize": {"parties": 12},
     "attributes": ["parties.id"]
 }
 ```
@@ -613,6 +620,7 @@ Content-type: application/json
     "sort": {"field": "title", "order": "asc"},
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
+    "expandPageSize": {"tags": 16},
     "attributes: ["tags.title", "tags.classification.title"],
 }
 ```
@@ -653,6 +661,7 @@ Response:
     "sort": {"field": "title", "order": "asc"},
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
+    "expandPageSize": {"tags": 16},
     "attributes: ["tags.title", "tags.classification.title"],
 }
 ```
@@ -681,6 +690,7 @@ Content-type: application/json
     "page": 1,
     "pageSize": 10,
     "expand": ["documentVersions", "entry"],
+    "expandPageSize": {"documentVersions": 2},
     "attributes": ["title", "documentVersions.text", "entry.title"]
 }
 ```
@@ -724,6 +734,7 @@ Response:
     "page": 1,
     "pageSize": 10,
     "expand": ["documentVersions", "entry"],
+    "expandPageSize": {"documentVersions": 2},
     "attributes": ["title", "documentVersions.text", "entry.title"]
 }
 ```

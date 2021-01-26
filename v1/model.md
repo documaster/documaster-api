@@ -3,6 +3,7 @@
 This document lists all resource attributes that could be used when invoking the [Documaster API](endpoints.md). This document will help you get acquainted with the supported values for each resource in the following fields:
 - `data`
 - `expand`
+- `expandPageSize`
 - `attributes`
 - `sort`
  
@@ -10,6 +11,7 @@ You can jump right to the section you are interested in:
 - [Model diagram](#model-diagram)
 - [Data](#data)
 - [Expand](#expand)
+- [Expand Page Size](#expand-page-size)
 - [Attributes](#attributes)
 - [Sort](#sort)
 - [Model](#model)
@@ -58,6 +60,16 @@ Both directly related resources (`tags`) and indirectly related resources (`tags
 
 The model sections below contain a list of supported `expand` values for each resource.
 
+# "Expand Page Size"
+
+The `expandPageSize` JSON field appears in many of the requests and resources described in the [Endpoints specification](endpoints.md).
+
+The `expandPageSize` field allows users to specify the count of the items returned for each related resource (`documents`).
+
+Both directly related resources (`documents`) and indirectly related resources (`documents.documentVersions`) can be specified.
+
+The model sections below contain a list of supported `expandPageSize` values for each resource.
+
 # "Attributes"
 
 The `attributes` JSON field appears in many of the requests and responses described in the [Endpoints specification](endpoints.md).
@@ -84,7 +96,7 @@ The model sections below list all attributes supported as `sort` values for each
 
 # Model
 
-This section lists all resources, their attributes and their supported values for the `data`, `attributes`, `sort`, and `expand` fields.
+This section lists all resources, their attributes and their supported values for the `data`, `attributes`, `sort`, `expand`, and `expandPageSize` fields.
 
 The `data` sections describe the attributes that are:
 - accepted in requests
@@ -99,6 +111,8 @@ The table columns are as follows:
 - `Comment` - a description of the attribute together with any related information
 
 The `expand` sections describe the supported values for the `expand` field in requests.
+
+The `expandPageSize` can be set to any value that is set in the `expand` list of the particular request.
 
 ## Classification
 
@@ -422,7 +436,7 @@ An AccessGroup is identified by the following attributes:
 | globalPermissions  | string array | [Global permissions](#explicit-permissions)                                           |
 | servicePermissions | string array | [Service permissions](#service-permissions)                                           |
 
-Note that `expand`, `attribute`, and `sort` cannot be used when looking up access groups.
+Note that `expand`, `expandPageSize`, `attribute`, and `sort` cannot be used when looking up access groups.
 
 ## Model constraints
 
