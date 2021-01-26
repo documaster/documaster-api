@@ -22,7 +22,7 @@ This document specifies information about the Documaster API endpoints:
   - [Delete access group endpoint](#delete-access-group-endpoint) - DELETE /access-group
 - [Error response format](#error-response-format)
 
-Refer to the [Model specification](model.md) for more information on the `{resource}` path parameter and the contents of `data`, `expand`, `expandPageSize` and `attributes` used in this document.
+Refer to the [Model specification](model.md) for more information on the `{resource}` path parameter and the contents of `data`, `expand`, `expandPageSize`, `expandSort`, and `attributes` used in this document.
 
 Additionally, information about the [error response format](#error-response-format) can be found at the end of the document.
 
@@ -394,6 +394,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [ string, ... ]
 }
 ```
@@ -411,6 +412,8 @@ Content-type: application/json
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
   - specifies the page size for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - specifies the sort order for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -438,6 +441,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [ string, ... ]
 }
 ```
@@ -468,6 +472,8 @@ Content-type: application/json
   - the requested list of additional resources
 - `expandPageSize` (optional)
   - the requested map of page sizes for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - the requested map of sort orders for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
@@ -501,6 +507,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [ string, ... ]
 }
 ```
@@ -531,6 +538,8 @@ Content-type: application/json
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
   - specifies the page size for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - specifies the sort order for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -564,6 +573,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [ string, ... ],   
 }
 ```
@@ -594,6 +604,8 @@ Content-type: application/json
   - the requested list of additional resources
 - `expandPageSize` (optional)
   - the requested map of page sizes for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - the requested map of sort orders for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
@@ -649,6 +661,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [ string, ...]
 }
 ```
@@ -676,6 +689,8 @@ Content-type: application/json
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
   - specifies the page size for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - specifies the sort order for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -710,6 +725,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean },
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [string, ...]
 }
 ```
@@ -749,6 +765,8 @@ Content-type: application/json
   - the requested list of additional resources
 - `expandPageSize` (optional)
   - the requested map of page sizes for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - the requested map of sort orders for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
@@ -792,6 +810,7 @@ Content-type: application/json
     "flags": { "includeTotal": boolean }
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [ string, ...]
 }
 ```
@@ -820,6 +839,8 @@ Content-type: application/json
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
   - specifies the page size for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - specifies the sort order for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - specifies the list of attributes to be returned for each resource in the response
 
@@ -854,6 +875,7 @@ Content-type: application/json
     "flags": { },
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
+    "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
     "attributes": [string, ...]
 }
 ```
@@ -892,6 +914,8 @@ Content-type: application/json
   - the requested list of additional resources
 - `expandPageSize` (optional)
   - the requested map of page sizes for the additional resources in the `expand` parameter
+- `expandSort` (optional)
+  - the requested map of sort orders for the additional resources in the `expand` parameter
 - `attributes` (optional)
   - the requested list of attributes
 
