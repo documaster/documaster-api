@@ -134,12 +134,15 @@ A Classification is identified by the following attributes:
 | updatedByUserId      | X    | string               | User ID of the user who updated the resource                        |
 | title                | X    | string               | Title of the classification                                         |
 | description          | X    | string               | Description of the Classification                                   |
+| isSystem             | X    | boolean              | Defaults to false. Flags the Classification as System (see below).  |
 | highlights           |      | highlight snippets   | Read-only [Highlight snippets](#highlights) per resource attribute  |
 | explicitPermissions  |      | explicit permissions | Write-only [Explicit permissions](#explicit-permissions)            |
 | effectivePermissions |      | string array         | Read-only [Effective permissions](#effective-permissions)           |
 | classification       |      | array of resources   | Related Tags                                                        |
 | sections             |      | array of resources   | Related Sections                                                    |
 | externalIds          |      | array of resources   | Related ExternalIds                                                 |
+
+A system Classification is only different from regular Classifications in that it will be hidden from users in the Documaster UI. Integrations are encouraged to set `isSystem` to true on Classifications that should not be visible to any users via the Documaster UI.
 
 ### Expand
 
