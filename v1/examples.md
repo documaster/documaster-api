@@ -118,7 +118,7 @@ Content-type: application/json
     },
     "expand": ["tags"],
     "expandPageSize": {"tags": 12},
-    "expandSort": {"tags": ["field": "title", "order": "asc"]}
+    "expandSort": {"tags": [{"field": "title", "order": "asc"}]}
 }
 ```
 
@@ -158,7 +158,7 @@ Content-type: application/json
     },
     "expand": ["tags"],
     "expandPageSize": {"tags": 12},
-    "expandSort": {"tags": ["field": "title", "order": "asc"]}
+    "expandSort": {"tags": [{"field": "title", "order": "asc"}]}
 }
 ```
 
@@ -345,7 +345,7 @@ Content-type: application/json
     },
     "expand": ["tags"],
     "expandPageSize": {"tags": 14},
-    "expandSort": {"tags": ["field": "title", "order": "asc"]}
+    "expandSort": {"tags": [{"field": "title", "order": "asc"}]}
 }
 ```
 
@@ -389,7 +389,7 @@ Content-type: application/json
     },
     "expand": ["tags"],
     "expandPageSize": {"tags": 14},
-    "expandSort": {"tags": ["field": "title", "order": "asc"]}
+    "expandSort": {"tags": [{"field": "title", "order": "asc"}]}
 }
 ```
 
@@ -441,7 +441,7 @@ Content-type: application/json
     },
     "expand": ["parties"],
     "expandPageSize": {"parties": 12},
-    "expandSort": {"parties": ["field": "name", "order": "asc"]},
+    "expandSort": {"parties": [{"field": "name", "order": "asc"}]},
     "attributes": ["parties.id"]
 }
 ```
@@ -476,7 +476,7 @@ Content-type: application/json
     },
     "expand": ["parties"],
     "expandPageSize": {"parties": 12},
-    "expandSort": {"parties": ["field": "name", "order": "asc"]},
+    "expandSort": {"parties": [{"field": "name", "order": "asc"}]},
     "attributes": ["parties.id"]
 }
 ```
@@ -627,7 +627,7 @@ Content-type: application/json
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
     "expandPageSize": {"tags": 16},
-    "expandSort": {"tags": ["field": "title", "order": "asc"]},
+    "expandSort": {"tags": [{"field": "title", "order": "asc"}]},
     "attributes: ["tags.title", "tags.classification.title"],
 }
 ```
@@ -669,7 +669,7 @@ Response:
     "flags": {"includeTotal": true},
     "expand": ["tags", "tags.classification"],
     "expandPageSize": {"tags": 16},
-    "expandSort": {"tags": ["field": "title", "order": "asc"]},
+    "expandSort": {"tags": [{"field": "title", "order": "asc"}]},
     "attributes: ["tags.title", "tags.classification.title"],
 }
 ```
