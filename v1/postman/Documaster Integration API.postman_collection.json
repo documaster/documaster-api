@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "dcdecd37-c225-486e-8eb8-5cee232fa321",
+		"_postman_id": "0a6e1d03-7dd2-4c1e-ba34-93ce32cd3893",
 		"name": "Documaster Integration API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -374,8 +374,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get By ID",
@@ -726,8 +725,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Related",
@@ -1468,8 +1466,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Create",
@@ -1969,8 +1966,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Update",
@@ -1992,10 +1988,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"as123d\",\n        \"description\": \"classification description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\"]},\n        \"revision\": 3\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": {\n                    \"id\": \"2320f05d-b4b9-404d-b783-5f2101cf8bee\"\n                }\n            }\n        ]\n    },\n    \"attributes\": [],\n    \"expand\": [\n        \"sections\",\n        \"tags\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"as123d\",\n        \"description\": \"classification description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\"]},\n        \"revision\": 3\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": {\n                    \"id\": \"2320f05d-b4b9-404d-b783-5f2101cf8bee\"\n                }\n            }\n        ]\n    },\n    \"attributes\": [],\n    \"expand\": [\n        \"sections\",\n        \"tags\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/classification/aefd28fb-7ccd-4d93-bb75-5b2683b07cd9",
@@ -2029,10 +2022,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"title\"\n    }\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"createdDate\": \"2020-01-21T18:01:53.668+02:00\",\n        \"title\": \"title\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/tag/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
@@ -2066,10 +2056,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"title\": \"updated section title\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    },\n    \"update\": {\n        \"classifications\": [\n            {\n                \"add\": [\n                    {\n                        \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n                    },\n                    {\n                        \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n                    }\n                ],\n                \"remove\": []\n            }\n        ]\n    }\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"title\": \"updated section title\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    },\n    \"update\": {\n        \"classifications\": [\n            {\n                \"add\": [\n                    {\n                        \"id\": \"e7dee80e-884d-41e8-9231-982fc21f3a75\"\n                    },\n                    {\n                        \"id\": \"f52cf77b-c2d8-4aee-80d6-55098e9cc310\"\n                    }\n                ],\n                \"remove\": []\n            }\n        ]\n    }\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/section/9845e8dd-4d47-4d19-9356-596ee55cb1d4",
@@ -2103,10 +2090,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"title\": \"updated entry title\",\n        \"description\": \"entry description\",\n        \"documents\": []\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"a5ec8c9c-501a-406c-823c-6f128d7ed3ab\"\n                    }\n                ]\n            }\n        ],\n        \"externalIds\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"c1f4d031-cc0d-47f4-9a61-6d2c42cffbf9\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"expand\": [\n        \"externalIds\",\n        \"documents\",\n        \"parties\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"title\": \"updated entry title\",\n        \"description\": \"entry description\",\n        \"documents\": []\n    },\n    \"update\": {\n        \"tags\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"a5ec8c9c-501a-406c-823c-6f128d7ed3ab\"\n                    }\n                ]\n            }\n        ],\n        \"externalIds\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"c1f4d031-cc0d-47f4-9a61-6d2c42cffbf9\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"expand\": [\n        \"externalIds\",\n        \"documents\",\n        \"parties\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/entry/1b99b314-c125-4c01-a868-e73ef612b87e",
@@ -2140,10 +2124,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"name\": \"name\"\n    },\n    \"attributes\": [\n        \"name\"\n    ],\n    \"expand\": [\n        \"entry\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"name\": \"name\"\n    },\n    \"attributes\": [\n        \"name\"\n    ],\n    \"expand\": [\n        \"entry\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/party/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
@@ -2177,10 +2158,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"text\": \"comment\"\n    },\n    \"attributes\": [\n        \"text\"\n    ],\n    \"expand\": [\n        \"entry\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"text\": \"comment\"\n    },\n    \"attributes\": [\n        \"text\"\n    ],\n    \"expand\": [\n        \"entry\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/comment/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
@@ -2214,10 +2192,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"externalId\": \"dlqwnfdgqpsndgyumdmndsmeuybgfgds\"\n    },\n    \"expand\": [\n        \"entry\",\n        \"document\",\n        \"documentVersions\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"externalId\": \"dlqwnfdgqpsndgyumdmndsmeuybgfgds\"\n    },\n    \"expand\": [\n        \"entry\",\n        \"document\",\n        \"documentVersions\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/external-id/99666b6d-43d8-4716-b741-cd1bf64b7ae8",
@@ -2251,10 +2226,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"title\": \"title\",\n        \"externalIds\": [],\n        \"entry\": null\n    },\n    \"update\": {},\n    \"attributes\": [\n        \"title\"\n    ],\n    \"expand\": [\n        \"externalIds\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"title\": \"title\",\n        \"externalIds\": [],\n        \"entry\": null\n    },\n    \"update\": {},\n    \"attributes\": [\n        \"title\"\n    ],\n    \"expand\": [\n        \"externalIds\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/document/0ce77f4a-2f13-4d0e-8c15-e4ec3997a9b9",
@@ -2288,10 +2260,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"fileName\": \"file name\"\n    },\n    \"update\": {\n        \"externalIds\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"b7e12eb6-fff5-440e-a9b9-3970b7a5445b\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"attributes\": [\n        \"fileName\"\n    ],\n    \"expand\": [\n        \"externalIds\",\"document\"\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"data\": {\n        \"fileName\": \"file name\"\n    },\n    \"update\": {\n        \"externalIds\": [\n            {\n                \"remove\": [\n                    {\n                        \"id\": \"b7e12eb6-fff5-440e-a9b9-3970b7a5445b\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"attributes\": [\n        \"fileName\"\n    ],\n    \"expand\": [\n        \"externalIds\",\"document\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/document-version/431ed208-9042-4142-a971-5d6eff80f386",
@@ -2325,10 +2294,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Human-readable Documaster access group\",\r\n            \"description\": \"Human-readable Documaster access group description\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Human-readable Documaster access group\",\r\n            \"description\": \"Human-readable Documaster access group description\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/access-group",
@@ -2344,8 +2310,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Delete",
@@ -2357,10 +2322,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/classification/aefd28fb-7ccd-4d93-bb75-5b2683b07cd9",
@@ -2384,10 +2346,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/tag/bec8f984-2ccf-4025-8dff-35c740e83147",
@@ -2411,10 +2370,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/section/9845e8dd-4d47-4d19-9356-596ee55cb1d4",
@@ -2438,10 +2394,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/entry/2c22798d-d907-4260-8352-4e86e5717bb8",
@@ -2465,10 +2418,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/document/c788a3ff-8683-49e6-9857-5786e8fc2dd0",
@@ -2492,10 +2442,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/document-version/594dc870-3de1-45f2-a826-592949b8cbc4",
@@ -2519,10 +2466,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/external-id/4970a8e3-908e-40c0-8b2e-09870e129de4",
@@ -2546,10 +2490,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/party/69641e15-fdf4-4116-ae39-57d4555a0f1d",
@@ -2573,10 +2514,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/comment/69641e15-fdf4-4116-ae39-57d4555a0f1d",
@@ -2600,10 +2538,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/access-group/69641",
@@ -2620,8 +2555,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Download",
@@ -2646,8 +2580,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Upload",
@@ -2667,9 +2600,6 @@
 							"mode": "file",
 							"file": {
 								"src": "/J:/DEV/Samples/Documents/1500mb.pdf"
-							},
-							"options": {
-								"file": {}
 							}
 						},
 						"url": {
@@ -2686,8 +2616,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Lookup",
@@ -2872,8 +2801,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Search",
@@ -2989,9 +2917,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Entry",
@@ -3104,12 +3030,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Access Control Use Cases",
@@ -3134,10 +3057,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global administrator\",\r\n            \"description\": \"Global administrator\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global administrator\",\r\n            \"description\": \"Global administrator\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}"
 								},
 								"url": {
 									"raw": "{{documaster-url}}/api/v1/access-group",
@@ -3154,9 +3074,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Global read access",
@@ -3178,10 +3096,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global read access\",\r\n            \"description\": \"Global read access\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\"]\r\n    }\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global read access\",\r\n            \"description\": \"Global read access\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\"]\r\n    }\r\n}"
 								},
 								"url": {
 									"raw": "{{documaster-url}}/api/v1/access-group",
@@ -3198,9 +3113,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Global administrator w/ rights to change permissions",
@@ -3222,10 +3135,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global administrator\",\r\n            \"description\": \"Global administrator\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Global administrator\",\r\n            \"description\": \"Global administrator\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"globalPermissions\": [\"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"ModifyChildrenPermissions\", \"UpdateChildrenSystemFields\"],\r\n            \"servicePermissions\": [\"UploadDocuments\", \"ManageAccessGroups\"]\r\n    }\r\n}"
 								},
 								"url": {
 									"raw": "{{documaster-url}}/api/v1/access-group",
@@ -3242,9 +3152,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "User with access to a single Section and its Classifications",
@@ -3266,10 +3174,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Group with access to a single section\",\r\n            \"description\": \"Group with access to a single section\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Group with access to a single section\",\r\n            \"description\": \"Group with access to a single section\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}"
 								},
 								"url": {
 									"raw": "{{documaster-url}}/api/v1/access-group",
@@ -3303,10 +3208,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"data\": {\n        \"title\": \"section title\",\n        \"description\": \"section description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    }\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n    \"data\": {\n        \"title\": \"section title\",\n        \"description\": \"section description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    }\n}"
 								},
 								"url": {
 									"raw": "{{documaster-url}}/api/v1/section",
@@ -3340,10 +3242,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"data\": {\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\"]}\n    }\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n    \"data\": {\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadChildren\"]}\n    }\n}"
 								},
 								"url": {
 									"raw": "{{documaster-url}}/api/v1/classification",
@@ -3360,12 +3259,150 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
+				},
+				{
+					"name": "Tag-based access control",
+					"item": [
+						{
+							"name": "1. Create Access Group with permissions to Upload documents",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n            \"name\": \"Group with tag-based access control\",\r\n            \"description\": \"Group with tag-based access control\",\r\n            \"claim\": \"External identity provider group name\",\r\n            \"servicePermissions\": [\"UploadDocuments\"]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/access-group",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"access-group"
+									]
+								},
+								"description": "Create an access group with no permissions. Make note of the ID of the access group as you will use it in the next steps."
+							},
+							"response": []
+						},
+						{
+							"name": "2. Create a Section with the desired group permissions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"title\": \"section title\",\n        \"description\": \"section description\",\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"CreateChildren\", \"UpdateChildren\", \"DeleteChildren\", \"UpdateChildrenSystemFields\"]}\n    }\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/section",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"section"
+									]
+								},
+								"description": "Create a section and  specify explicitPermissions for the group you just created. The group must have the ReadObject permission, BUT not the ReadChildren permission. Otherwise, the group will gain full access to the section.\n\nGrant CreateChildren, DeleteChildren, UpdateChildren, UpdateChildrenSystemFields permissions based on the use case."
+							},
+							"response": []
+						},
+						{
+							"name": "3. Update the permissions of the classifications linked to the seciton",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"determinesAccessControl\": true,\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\"]}\n    }\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/classification",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"classification"
+									]
+								},
+								"description": "Create a classification and  specify explicitPermissions for the group you just created.\n\nSpecify only the ReadObject permission so that the group can see the classification, but not any of its tags... for now.\n\nMake sure you set \"determinesAccessControl\" to true so that the Classification and its Tags are considered for access control purposes.\n\nGrant CreateChildren, DeleteChildren, UpdateChildren, UpdateChildrenSystemFields permissions based on the use case."
+							},
+							"response": []
+						},
+						{
+							"name": "4. Update the permissions of a tag in the classification to be used for access control",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"explicitPermissions\": {\"1234\": [\"ReadObject\", \"ReadEntries\"]}\n    }\n}"
+								},
+								"url": {
+									"raw": "{{documaster-url}}/api/v1/tag",
+									"host": [
+										"{{documaster-url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tag"
+									]
+								},
+								"description": "Create a tag and  specify explicitPermissions for the group you just created.\n\nSpecify only the ReadObject permission so that the group can see the tag that will grant it access.\n\nAlso, specify the ReadEntries permission so that the group gains access to any Entries linked to this Tag."
+							},
+							"response": []
+						}
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"auth": {
@@ -3382,7 +3419,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8fc9213f-663c-475d-b8d2-c4c5b4cd6dc0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3392,13 +3428,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7aeca20f-f47d-4e21-a80f-5be4c0d7ba85",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
