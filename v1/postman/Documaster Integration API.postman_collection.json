@@ -1521,7 +1521,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"title\": \"tag title\",\n        \"description\": \"tag description\",\n        \"classification\": [\n            {\n                \"id\": \"69641e15-fdf4-4116-ae39-57d4555a0f1d\"\n            }\n        ]\n    },\n    \"attributes\": [\n        \"classification.title\"\n    ],\n    \"expand\": [\n        \"classification\"\n    ]\n}"
+							"raw": "{\n    \"data\": {\n        \"title\": \"tag title\",\n        \"description\": \"tag description\",\n        \"classification\": {\n                \"id\": \"69641e15-fdf4-4116-ae39-57d4555a0f1d\"\n            }\n    },\n    \"attributes\": [\n        \"classification.title\"\n    ],\n    \"expand\": [\n        \"classification\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{documaster-url}}/api/v1/tag",
