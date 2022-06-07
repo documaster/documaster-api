@@ -103,6 +103,8 @@ Authorization: Bearer {token}
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -139,7 +141,7 @@ Content-type: application/json
     "hasMore": boolean,
     "page": integer,
     "pageSize": integer,
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "attributes": [string, ...],
 }
@@ -202,6 +204,8 @@ Authorization: Bearer {token}
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -231,7 +235,7 @@ Content-type: application/json
             ...
         }
     },
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "attributes": [string, ...],
 }
@@ -296,6 +300,8 @@ Authorization: Bearer {token}
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -391,7 +397,7 @@ Content-type: application/json
 
 {
     "data": { attribute: value, ... },
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -408,6 +414,8 @@ Content-type: application/json
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
@@ -438,7 +446,7 @@ Content-type: application/json
             ...
         }
     },
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -504,7 +512,7 @@ Content-type: application/json
             { "remove": { "id": value } }, ...
         ]
     },
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"]
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -534,6 +542,8 @@ Content-type: application/json
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
@@ -570,7 +580,7 @@ Content-type: application/json
             ...
         }
     },
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -658,7 +668,7 @@ Content-type: application/json
     "page": number,
     "pageSize" number,
     "sort": [ { "field": string, "order": "asc|desc"} , ... ],
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -685,6 +695,8 @@ Content-type: application/json
     - retrieves the total amount of results
     - incurs a performance cost on the Documsater instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
@@ -722,7 +734,7 @@ Content-type: application/json
     "page": integer,
     "pageSize": integer,
     "sort": [ { "field": string, "order": "asc|desc"} , ... ],
-    "flags": { "includeTotal": boolean },
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -807,7 +819,7 @@ Content-type: application/json
     "parameters": { string: string, ... },
     "page": number,
     "pageSize" number,
-    "flags": { "includeTotal": boolean }
+    "flags": ["includeTotal"],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
@@ -872,7 +884,7 @@ Content-type: application/json
     "page": integer,
     "pageSize": integer,
     "total": integer,
-    "flags": { },
+    "flags": [],
     "expand": [ string, ... ],
     "expandPageSize": {"string": integer, ... },
     "expandSort": {"string: [{"field": string, "order": "asc|desc"}, ...], ...},
