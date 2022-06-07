@@ -430,11 +430,13 @@ An ExternalID is identified by the following attributes:
 
 ### Expand
 
-A DocumentVersion accepts the following `expand` values:
+An External ID accepts the following `expand` values:
 - entry
 - document
 - documentVersion
-- externalIds
+- section
+- classification
+- tag
 
 ## Access Group
 
