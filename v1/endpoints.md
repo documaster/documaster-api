@@ -103,6 +103,8 @@ Authorization: Bearer {token}
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -202,6 +204,8 @@ Authorization: Bearer {token}
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -296,6 +300,8 @@ Authorization: Bearer {token}
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `attributes` (optional)
@@ -408,6 +414,8 @@ Content-type: application/json
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
@@ -534,6 +542,8 @@ Content-type: application/json
     - retrieves the total amount of results
     - incurs a performance cost on the Documaster instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
@@ -685,6 +695,8 @@ Content-type: application/json
     - retrieves the total amount of results
     - incurs a performance cost on the Documsater instance
     - defaults to false
+  - `includeInternalIdentifier`
+    - includes the internal numeric identifier of resources in the response
 - `expand` (optional)
   - specifies additional resources to be included in the response
 - `expandPageSize` (optional)
