@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0a6e1d03-7dd2-4c1e-ba34-93ce32cd3893",
+		"_postman_id": "1482756a-2b89-4769-a21a-e3f967c30ed0",
 		"name": "Documaster Integration API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7291618"
 	},
 	"item": [
 		{
@@ -1532,6 +1533,172 @@
 								"api",
 								"v1",
 								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Free-text String Attribute Definition on Classification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"name\": \"Attribute definition of type string on Classification\",\n        \"attributeType\": \"String\",\n        \"tag\": {\"id\": \"fddb7f20-2744-4ff5-b71b-145f4af60a62\"}\n    },\n    \"flags\": [\"enableBetaSupport\"],\n    \"expand\": [\"classification\"]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/attribute-definition",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pre-defined Numeric Attribute Definition on Tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"name\": \"Attribute definition of type numeric list on Tag\",\n        \"attributeType\": \"NumericList\",\n        \"tag\": {\"id\": \"9a939ed9-40e9-4c63-b68c-8ddea7289c21\"}\n    },\n    \"flags\": [\"enableBetaSupport\"],\n    \"expand\": [\"tag\"]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/attribute-definition",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-definition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pre-defined Numeric Attribute List Value",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"valueDouble\": 1.23456,\n        \"definition\": {\"id\": \"63a4553e-9b14-411a-9b1a-63250c469d39\"}\n    },\n    \"flags\": [\"enableBetaSupport\"]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/attribute-list-value",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-list-value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create String Attribute Value on Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"valueString\": \"Free-text attribute value added to a parent Entry (and linked to its own definition type)\",\n        \"entry\": {\"id\": \"24ebbabb-f728-427b-a7da-2e47df8ddf94\"},\n        \"definition\": {\"id\": \"a866a1c7-d4a9-490c-8530-3f52b40e176e\"}\n    },\n    \"flags\": [\"enableBetaSupport\"],\n    \"expand\": [\"tag\"]\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/attribute-value",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-value"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Numeric Attribute List Value on Tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"update\": {\n        \"attributeListValues\": [{\"add\": {\"id\": \"c2ab243e-7459-4218-acac-ba9467ec8df0\"}}]\n     },\n     \"flags\": \"enableBetaSupport\"\n}"
+						},
+						"url": {
+							"raw": "{{documaster-url}}/api/v1/entry/24ebbabb-f728-427b-a7da-2e47df8ddf94",
+							"host": [
+								"{{documaster-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"entry",
+								"24ebbabb-f728-427b-a7da-2e47df8ddf94"
 							]
 						}
 					},
