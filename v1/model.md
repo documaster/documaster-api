@@ -26,6 +26,9 @@ You can jump right to the section you are interested in:
   - [Document](#document)
   - [DocumentVersion](#document-version)
   - [ExternalId](#external-id)
+  - [Attribute Definition](#attribute-definition)
+  - [Attribute List Value](#attribute-list-value)
+  - [Attribute Value](#attribute-value)
   - [AccessGroup](#access-group)
   - [Model Constraints](#model-constraints)
   - [Highlights](#highlights)
@@ -43,6 +46,10 @@ You can jump right to the section you are interested in:
 The following diagram illustrates the resources exposed via the Documaster API.
 
 ![Model diagram](img/model.png)
+
+Additionally, the following model diagram describes the concepts of attribute (list) values.
+
+![Attribute values diagram](img/attribute-values-model.png)
 
 # "Data"
 
@@ -155,6 +162,7 @@ A Classification is identified by the following attributes:
 | classification       |      | array of resources   | Related Tags                                                        |
 | sections             |      | array of resources   | Related Sections                                                    |
 | externalIds          |      | array of resources   | Related ExternalIds                                                 |
+| attributeDefinitions |      | array of resources   | Related AttributeDefinitions                                        |
 
 A system Classification is only different from regular Classifications in that it will be hidden from users in the Documaster UI. Integrations are encouraged to set `isSystem` to true on Classifications that should not be visible to any users via the Documaster UI.
 
@@ -162,6 +170,10 @@ A system Classification is only different from regular Classifications in that i
 
 A Classification accepts the following `expand` values:
 - tags
+- sections
+- externalIds
+- tagStatuses
+- attributeDefinitions
 
 ## Tag
 
@@ -187,11 +199,18 @@ A Tag is identified by the following attributes:
 | effectivePermissions |      | string array       | Read-only [Effective permissions](#effective-permissions)           |
 | classification       |      | resource           | Parent Classification                                               |
 | externalIds          |      | array of resources | Related ExternalIds                                                 |
+| attributeValues      |      | array of resources | Related Attribute Values                                            |
+| attributeListValues  |      | array of resources | Related Attribute List Values                                       |
+| attributeDefinitions |      | array of resources | Related Attribute Definitions                                       |
 
 ### Expand
 
 A Tag accepts the following `expand` values:
 - classification
+- externalIds
+- attributeValues
+- attributeListValues
+- attributeDefinitions
 
 ## Section
 
@@ -256,6 +275,8 @@ An Entry is identified by the following attributes:
 | externalIds          |      | array of resources | Related ExternalIds                                                 |
 | parties              |      | array of resources | Related Parties                                                     |
 | comments             |      | array of resources | Related Comments                                                    |
+| attributeValues      |      | array of resources | Related Attribute Values                                            |
+| attributeListValues  |      | array of resources | Related Attribute List Values                                       |
 
 ### Expand
 
@@ -267,6 +288,8 @@ An Entry accepts the following `expand` values:
 - externalIds
 - parties
 - comments
+- attributeValues
+- attributeListValues
 
 ## Party
 
@@ -437,6 +460,125 @@ An External ID accepts the following `expand` values:
 - section
 - classification
 - tag
+
+## Attribute Definition
+
+### Data
+
+The Attribute Definition resource is identified by `attribute-definition` in URLs.
+
+An Attribute Definition is identified by the following attributes:
+
+| Attribute            | Sort | Data type            | Comment                                                             |
+|----------------------|------|----------------------|---------------------------------------------------------------------|
+| id                   | X    | string               | (Globally) Unique identifier of the resource                        |
+| revision             | X    | integer              | Revision of the resource used for concurrent modification detection |
+| createdDate          | X    | timestamp            | Timestamp at which the resource was created                         |
+| createdBy            | X    | string               | User name of the user who created the resource                      |
+| createdByUserId      | X    | string               | User ID of the user who created the resource                        |
+| updatedDate          | X    | timestamp            | Timestamp at which the resource was updated                         |
+| updatedBy            | X    | string               | User name of the user who last updated the resource                 |
+| updatedByUserId      | X    | string               | User ID of the user who updated the resource                        |
+| name                 | X    | string               | Title of the attribute definition                                   |
+| description          | X    | string               | Description of the attribute defintiion                             |
+| attributeType        | X    | string               | The type of the definition's values (see below)                     |
+| effectivePermissions |      | string array         | Read-only [Effective permissions](#effective-permissions)           |
+| classification       |      | resource             | Parent classification (mutually exclusive with tag)                 |
+| tag                  |      | resource             | Parent tag (mutually exclusive with classification)                 |
+| attributeValues      |      | array of resources   | Related AttributeValues                                             |
+| attributeListValues  |      | array of resources   | Related (child) AttributeListValues                                 |
+
+`attributeType` can be one of String, Numeric, Date, DateTime, StringList, NumericList, DateList, DateTimeList. The selected type determines what kind of values can be linked to the definition (later). If String, Numeric, or Date, DateTime is chosen, then only Attribut\eValues can be linked (on-demand free-text values). If StrngList, NumericList, or DateList, DateTimeList is chosen, then only AttributeListValues can be linked (pre-defined list of values). Note that `attributeType` cannot be specified when updating the definition.
+
+Note that working with attribute definitions requires the enableBetaSupport flag to be passed in requests for now (see Postman).
+
+### Expand
+
+An Attribute Definition accepts the following `expand` values:
+- attributeValues
+- attributeListValues
+- tag
+- classification
+
+## Attribute List Value
+
+### Data
+
+The Attribute List Value resource is identified by `attribute-list-value` in URLs.
+
+An Attribute List Value is identified by the following attributes:
+
+| Attribute            | Sort | Data type            | Comment                                                             |
+|----------------------|------|----------------------|---------------------------------------------------------------------|
+| id                   | X    | string               | (Globally) Unique identifier of the resource                        |
+| revision             | X    | integer              | Revision of the resource used for concurrent modification detection |
+| createdDate          | X    | timestamp            | Timestamp at which the resource was created                         |
+| createdBy            | X    | string               | User name of the user who created the resource                      |
+| createdByUserId      | X    | string               | User ID of the user who created the resource                        |
+| updatedDate          | X    | timestamp            | Timestamp at which the resource was updated                         |
+| updatedBy            | X    | string               | User name of the user who last updated the resource                 |
+| updatedByUserId      | X    | string               | User ID of the user who updated the resource                        |
+| valueString          | X    | string               | String value (depends on the definition attributeType)              |
+| valueDouble          | X    | double               | Numeric value (depends on the definition attributeType)             |
+| valueDate            | X    | date                 | Date value (depends on the definition attributeType)                |
+| valueDateTime        | X    | timestamp            | Timestamp value (depends on the definition attributeType)           |
+| effectivePermissions |      | string array         | Read-only [Effective permissions](#effective-permissions)           |
+| definition           |      | resource             | Parent attribute definition                                         |
+| entries              |      | array of resources   | Related entries                                                     |
+| tags                 |      | array of resources   | Related tags                                                        |
+
+Only one of `valueString`, `valueDouble`, `valueDate`, or `valueDateTime` will be populated at a time. Which of these will be populated depends on the `attributeType` of the parent definition.
+
+Note that working with attribute list values requires the enableBetaSupport flag to be passed in requests for now (see Postman).
+
+### Expand
+
+An Attribute List Value accepts the following `expand` values:
+- definition
+- entries
+- tags
+
+Depending on whether the parent Attribute Definition is linked to a Classification or a Tag, the Attribute List Value can be respectively linked to Tags or Entries. As such, `tags` can only ever be non-empty if the parent Attribute Definition is linked to a Classificaiton. Consequently, `entries` can only ever be non-empty if the parent Attribute Definition is linked to a Tag.
+
+## Attribute Value
+
+### Data
+
+The Attribute Value resource is identified by `attribute-value` in URLs.
+
+An Attribute Value is identified by the following attributes:
+
+| Attribute            | Sort | Data type            | Comment                                                             |
+|----------------------|------|----------------------|---------------------------------------------------------------------|
+| id                   | X    | string               | (Globally) Unique identifier of the resource                        |
+| revision             | X    | integer              | Revision of the resource used for concurrent modification detection |
+| createdDate          | X    | timestamp            | Timestamp at which the resource was created                         |
+| createdBy            | X    | string               | User name of the user who created the resource                      |
+| createdByUserId      | X    | string               | User ID of the user who created the resource                        |
+| updatedDate          | X    | timestamp            | Timestamp at which the resource was updated                         |
+| updatedBy            | X    | string               | User name of the user who last updated the resource                 |
+| updatedByUserId      | X    | string               | User ID of the user who updated the resource                        |
+| valueString          | X    | string               | String value (depends on the definition attributeType)              |
+| valueDouble          | X    | double               | Numeric value (depends on the definition attributeType)             |
+| valueDate            | X    | date                 | Date value (depends on the definition attributeType)                |
+| valueDateTime        | X    | timestamp            | Timestamp value (depends on the definition attributeType)           |
+| effectivePermissions |      | string array         | Read-only [Effective permissions](#effective-permissions)           |
+| definition           |      | resource             | Parent attribute definition                                         |
+| entry                |      | resource             | Related (parent) entry                                              |
+| tag                  |      | resource             | Related (parent) tag                                                |
+
+Only one of `valueString`, `valueDouble`, `valueDate`, or `valueDateTime` will be populated at a time. Which of these will be populated depends on the `attributeType` of the parent definition.
+
+Note that working with attribute values requires the enableBetaSupport flag to be passed in requests for now (see Postman).
+
+### Expand
+
+An Attribute List Value accepts the following `expand` values:
+- definition
+- entry
+- tag
+
+Depending on whether the related Attribute Definition is linked to a Classification or a Tag, the Attribute Value can be respectively created as a child of a Tag or an Entry. As such, `tag` will only be populated if the related Attribute Definition is linked to a Classificaiton. Consequently, `entry` will only be populated if the related Attribute Definition is linked to a Tag.
 
 ## Access Group
 
