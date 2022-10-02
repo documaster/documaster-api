@@ -971,7 +971,7 @@ Uploads a single temporary document to Documaster as a stream.
 ### Request
 
 ```
-POST /upload HTTP/1.1
+POST /upload-temp HTTP/1.1
 Accept: application/json
 Authorization: Bearer {token}
 Content-disposition: attachment; filename="ASCII_FILENAME"; filename*=utf-8''UTF8_FILENAME
