@@ -17,7 +17,7 @@ Do read through the [Access control](access-control.md) in order to gain an unde
 
 # Postman
 
-If you're familiar with Postman you can check out our [collection of Postman samples and a description of how to get startet](postman/README.md) with testing the API
+If you're familiar with Postman you can check out our [collection of Postman samples and a description of how to get started](postman/README.md) with testing the API
 
 # Authentication
 
