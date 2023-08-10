@@ -563,7 +563,7 @@ Content-type: application/json
             {"remove": {"id": "ad5524ba-87b6-4a80-949f-15a7176a5dbd"}}
         ],
         "externalIds": [
-            {"set": [{"externalId": "New external identifier"}]}
+            {"add": [{"externalId": "New external identifier"}]}
         ]
     }
 }
