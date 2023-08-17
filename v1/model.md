@@ -421,6 +421,7 @@ A DocumentVersion is identified by the following attributes:
 
 A DocumentVersion accepts the following `expand` values:
 - document (in order to be able to request more fields than just the the parent Document ID)
+- electronicDocument
 - externalIds
 
 ## External ID
